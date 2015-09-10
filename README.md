@@ -12,18 +12,18 @@ Many thanks!
 Fabrizio Schiavi
 
 
-### All chars of PragmataPro Regular
+=======================================
 <img src="http://www.fsd.it/fonts/pragmatapro/All_chars.png" alt="All chars of PragmataPro Regular">
 
 
-### PragmataPro OpenType features
+=======================================
 <img src="http://www.fsd.it/fonts/pragmatapro/OpenType_features.png" alt="PragmataPro OpenType features">
 
 
-### PragmataPro Haskell ligatures list
+=======================================
 <img src="http://www.fsd.it/fonts/pragmatapro/PragmataPro_Haskell_liga.png" alt="PragmataPro Haskell ligatures list">
 
 
-### PragmataPro vs PragmataPro Mono vs Essential PragmataPro
+=======================================
 <img src="http://www.fsd.it/fonts/pragmatapro/PP_PPM_EPP.png" alt="PragmataPro vs PragmataPro Mono vs Essential PragmataPro">
 
