@@ -3,7 +3,7 @@
 
 
 
-I don't know if in the future my font [PragmataPro](http://www.fsd.it/fonts/pragmatapro.htm)ª will be open source (I hope)
+I don't know if in the future my font [PragmataPro](http://www.fsd.it/fonts/pragmatapro.htm)â„¢ will be open source (I hope)
 while you visit its web page for more informations and updates 
 
 and keep me informed about issues you found and suggestions to improve it
