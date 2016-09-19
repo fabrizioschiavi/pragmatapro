@@ -13,17 +13,16 @@ Fabrizio Schiavi
 
 
 =======================================
-<img src="http://www.fsd.it/pragmatapro/All_chars.png" alt="All chars of PragmataPro Regular">
+![All chars of PragmataPro Regular](http://www.fsd.it/pragmatapro/All_chars.png)
 
 
 =======================================
-<img src="http://www.fsd.it/pragmatapro/OpenType_features.png" alt="PragmataPro OpenType features">
+![PragmataPro OpenType features](http://www.fsd.it/pragmatapro/OpenType_features.png)
 
 
 =======================================
-<img src="http://www.fsd.it/pragmatapro/PragmataPro_Haskell_liga.png" alt="PragmataPro Haskell ligatures list">
+![PragmataPro Haskell ligatures list](http://www.fsd.it/pragmatapro/PragmataPro_Haskell_liga.png)
 
 
 =======================================
-<img src="http://www.fsd.it/pragmatapro/PP_PPM_EPP.png" alt="PragmataPro vs PragmataPro Mono vs Essential PragmataPro">
-
+![PragmataPro vs PragmataPro Mono vs Essential PragmataPro](http://www.fsd.it/pragmatapro/PP_PPM_EPP.png)
