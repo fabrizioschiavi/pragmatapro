@@ -1,0 +1,49 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 PragmataProX;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13800\viewh16900\viewkind0
+{\*\background {\shp{\*\shpinst\shpleft0\shptop0\shpright0\shpbottom0\shpfhdr0\shpbxmargin\shpbymargin\shpwr0\shpwrk0\shpfblwtxt1\shpz0\shplid1025{\sp{\sn shapeType}{\sv 1}}{\sp{\sn fFlipH}{\sv 0}}{\sp{\sn fFlipV}{\sv 0}}{\sp{\sn fillColor}{\sv 13497855}}{\sp{\sn fFilled}{\sv 1}}{\sp{\sn lineWidth}{\sv 0}}{\sp{\sn fLine}{\sv 0}}{\sp{\sn bWMode}{\sv 9}}{\sp{\sn fBackground}{\sv 1}}}}}
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs36 \cf0 \
+[ -> \uc0\u58256   \
+( -> \uc0\u58258   \
+\{ -> \uc0\u58260   \
+] -> ]  \
+) -> )  \
+\} -> \}\
+\
+\
+\
+\pard\pardeftab720
+\cf0 PragmataPro X:\
+(for [[k v] (partition 2 [:a [:b :c] :d [:e :f]])] \{[k "foo"] (f "bar" v)\})\
+[\{"" (["", [], \{\}])\}])\
+\
+PragmataPro:\
+(for [[k v] (partition 2 [:a [:b :c] :d [:e :f]])] \{[k "foo"] (f "bar" v)\})\
+[\{"" (["", [], \{\}])\}])\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+(function() \{\
+  \
+	//Generate a unique-ish cb handler\
+	var cb = "bh";\
+	for(var i=0; i<20; i++) \{\
+		cb += Math.floor(Math.random()*10);	\
+	\}\
+\
+	//Display results\
+	window[cb] = function(e) \{\
+		if(!window.BEHANCE_DOM) var d = document.querySelector("#behance");\
+		else var d = document.querySelector(window.BEHANCE_DOM);\
+		\
+var css = document.createElement("style");\
+	css.type = "text/css";\
+	css.innerHTML = "div.behance_entry \{ clear:both; \} div.behance_main \{ border-style:solid; border-width:thin; width: 250px; \} div.behance_entry \{ padding-bottom: 10px; \} div.behance_title \{ margin-left: auto; margin-right: auto; width: 100%; font-weight: bold; text-align: center; background-color: black; color: white; padding-top: 5px; padding-bottom: 5px; \} div.behance_entry a.titleLink \{display:block; text-align: center; margin-bottom: -25px; \} div.behance_entry img \{ display: block; margin-left: auto; margin-right: auto; margin-bottom: -10px; \} div.behance_entry p \{ margin-left: auto; margin-right: auto; display:block; width: 202px; \} div.behance_main a \{ text-decoration: none; font-weight: bold;\} div.behance_main \{ font-size: 0.8em; font-family: Arial; \}  div.behance_title img \{ margin-top: auto; margin-bottom: auto; margin-left: 10px; float: left; \}";\
+	document.body.appendChild(css);\
+	\
+\}());     ((((((((())))))))) [[[[[[[[]]]]]]]] \{\{\{\{\{\{\{\{\}\}\}\}\}\}\}\}\
+          \{\{[[[[(PragmataPro X)]]]]\}\}\
+\
+}
