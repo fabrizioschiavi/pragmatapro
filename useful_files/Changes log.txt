@@ -1,0 +1,1628 @@
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.826 TO 0.827
+edited by Fabrizio Schiavi 2018-08
+
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃                                                   ┃ PragmataPro           ┃ PragmataPro Mono      ┃ Essential ┃
+┠───────────────────────────────────────────────────╂─────┬─────┬─────┬─────╂─────┬─────┬─────┬─────╂─────┬─────┨
+┃ Unicode Ranges                                    ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol ┃
+┃                                                   ┠─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃ U+0000 – U+00F7 C0 Controls and Basic Latin       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+┃ U+0100 – U+017F Latin Extended-A                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0180 – U+024F Latin Extended-B                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+0250 – U+02AF IPA Extensions                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+02B0 – U+02FF Spacing Modifier Letters          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+0300 – U+036F Combining Diacritical Marks       ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+0370 – U+03FF Greek and Coptic                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0400 – U+04FF Cyrillic                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0590 – U+05FF Hebrew                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0600 - U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+1F00 - U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+1D00 - U+1D7F Phonetic extensions               ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1E00 - U+1EFF Latin Extended Additional         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+2000 – U+206F General Punctuation               ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2070 – U+209F Superscripts and Subscripts       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+20A0 – U+20CF Currency Symbols                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2110 – U+214F Letterlike Symbols                ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2150 – U+218F Number forms                      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2190 – U+21FF Arrows                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  □  │  □  │  □  ┃  □  │     ┃
+* U+2200 – U+22FF Mathematical Operators            ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │  □  ┃
+* U+2300 – U+23FF Miscellaneous Technical           ┃  □  │     │     │     ┃  □  │     │     │     ┃  □  │     ┃
+┃ U+2400 – U+243F Control Pictures                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │     ┃
+* U+2460 – U+24FF Enclosed Alphanumerics            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2500 – U+257F Box Drawing                       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+2580 – U+259F Block Elements                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+25A0 – U+25FF Geometric Shapes                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2600 – U+26FF Miscellaneous Symbols             ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2700 - U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+27C0 – U+27EF Misc. Mathematical Symbols-A      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+27F0 – U+27FF Supplemental Arrows-A             ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2800 - U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2900 – U+297F Supplemental Arrows               ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2980 - U+29FF Misc. Mathematical Symbols-B      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2A00 – U+2AFF Supplemental Math Operators       ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2B00 – U+2BFF Misc. Symbols and Arrows          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+3100 - U+312F Bopomofo                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FB00 - U+FB4F Alphabetic Presentation Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+FB50 - U+FDFF Arabic Presentation Forms-A       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FE70 - U+FEFF Arabic Presentation Forms-B       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+FF00 - U+FFFD Specials                          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1D400–U+1D7FF Mathematical Alphan. Symbols      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F0A0–U+1F0DF Playing Cards                     ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1F300–U+1F5FF Misc. Symbols & Pictographs       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+1F800–U+1F8FF Supplemental Arrows-C             ┃  ■  │  ■  │  ■  │  ■  ┃  □  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┠───────────────────────────────────────────────────╂─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ OpenType Features                                 ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+* calt Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ c2sc Small Capitals From Capitals                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* dnom Denominators                                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ fina Arabic Terminal Forms                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* frac Fractions                                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ fwid Fullwidth                                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ init Arabic Initial Forms                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ medi Arabic Medial Forms                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ rlig Aarbic Required Ligatures                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* sinf Scientific Inferiors                         ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss01 Stylistic Set 1 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss02 Stylistic Set 2 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss03 Stylistic Set 3 math fraktur                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss04 Stylistic Set 4 math fraktur bold            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss05 Stylistic Set 5 poker                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss06 Stylistic Set 6 math script                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss07 Stylistic Set 7 math script bold             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss08 Stylistic Set 8 math serif bold              ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss09 Stylistic Set 9 math serif italic            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss10 Stylistic Set 10 math serif bold italic      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss11 Stylistic Set 11 braille w/ helpers          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss12 Stylistic Set 12 Discretionary Ligatures     ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* sups Superscripts                                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┛
+
+                                                       ■ = complete       □ = almost complete
+
+                                         
+                                         
+  * all weights: loading time are now 10x less than previous version 
+                 thanks at the font tables reprogramming by Vladimir Kelaskin
+    
+  * all weights: added 'Liga' in the name of the fonts with ligatures.                                                                
+                 Since this version the directory structure is:     
+  
+                                                                          PragmataPro Liga Regular
+                                                     ┌── Modularspaced ── PragmataPro Liga Italic
+                                                     │                    PragmataPro Liga Bold
+                                                     │                    PragmataPro Liga Bold Italic
+                      ┌── Fonts with ligatures ──────┤                 
+                      │                              │                 
+                      │                              │                    PragmataPro Liga Mono Regular
+                      │                              └── Monospaced ───── PragmataPro Liga Mono Italic                                  
+                      │                                                   PragmataPro Liga Mono Bold
+                      │                                                   PragmataPro Liga Mono Bold Italic
+                      │
+  PragmataPro pack ───┤                   
+                      │
+                      │
+                      │                                                   PragmataPro Regular
+                      │                              ┌── Modularspaced ── PragmataPro Italic
+                      │                              │                    PragmataPro Bold
+                      │                              │                    PragmataPro Bold Italic
+                      └── Fonts without ligatures ───┤                 
+                                                     │                 
+                                                     │                    PragmataPro Mono Regular
+                                                     └── Monospaced ───── PragmataPro Mono Italic     
+                                                                          PragmataPro Mono Bold
+                                                                          PragmataPro Mono Bold Italic
+                                                                                                                                   
+  * all weights: all C++ and Java Reserved Keywords are adjusted using 
+                 OpenType positioning to improve and the legibility               
+                                            
+  * Bold, Italic and Bold Italic: added IPA characters and its extensions
+                 
+  * all weights: added Enclosed alphanumerics set
+  
+  * all weights: added Spacing Modifier Letters set with Medieval superscript letter diacritics
+  
+  * all weights: added Specials Unicode sets
+  
+  * all weights: added these ligatures:
+                  |-  (turnstile like)
+                  ||- (double turnstile like) 
+                 _|_ (bottom like)
+                 =~=  <-<  >->  <-->  <==  <<==  ==>>
+                 
+  * all weights: vertical position of * asterisk are aligned to x-height
+                 
+  * Regular:     improved Truetype hinting of → ← ↑ ↓ # { } / \
+  
+  * Regular:     Hebrew Nikkud is enabled
+  
+  * Regular:     Latin accents and diacritics are combinable with Latin and IPA letters
+  
+  * all weights: the content of 'liga' OpenType feature is moved to
+                 'calt' Contextual Alternates and enabled by default
+  
+  * all weights: the content of 'dlig' OpenType feature is moved to
+                 'ss12' Stylistic Set 12
+                 
+  * all weights: added optional ligatures for Markdown Checklist
+                 - [ ]  - [v]  - [x]  - [-]
+                 available as OpenType feature 'ss12' Stylistic Set 12
+                 
+  * all weights: added the most used Currency Symbols in the Unicode set (including ₿!)
+                 
+  * all weights: typing 'us' after numbers and space will appears 
+                 microsecond (µs) in serif variant
+  
+  * Regular:     improved the consistency between Mathematical Operators and Miscellaneous Technical set   
+                 
+
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.825 TO 0.826
+edited by Fabrizio Schiavi 2017-08
+
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃                                                   ┃ PragmataPro           ┃ PragmataPro Mono      ┃ Essential ┃
+┠───────────────────────────────────────────────────╂─────┬─────┬─────┬─────╂─────┬─────┬─────┬─────╂─────┬─────┨
+┃ Unicode Ranges                                    ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol ┃
+┃                                                   ┠─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃ U+0000 – U+00F7 C0 Controls and Basic Latin       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+* U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+┃ U+0100 – U+017F Latin Extended-A                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0180 – U+024F Latin Extended-B                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0250 – U+02AF IPA Extensions                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+02B0 – U+02FF Spacing Modifier Letters          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0300 – U+036F Combining Diacritical Marks       ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+0370 – U+03FF Greek and Coptic                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0400 – U+04FF Cyrillic                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0590 – U+05FF Hebrew                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0600 - U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+1F00 - U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1D00 - U+1D7F Phonetic extensions               ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1E00 - U+1EFF Latin Extended Additional         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+2000 – U+206F General Punctuation               ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2070 – U+209F Superscripts and Subscripts       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+20A0 – U+20CF Currency Symbols                  ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2110 – U+214F Letterlike Symbols                ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2150 – U+218F Number forms                      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2190 – U+21FF Arrows                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  □  │  □  │  □  ┃  □  │     ┃
+* U+2200 – U+22FF Mathematical Operators            ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │  □  ┃
+┃ U+2300 – U+23FF Miscellaneous Technical           ┃  □  │     │     │     ┃  □  │     │     │     ┃  □  │     ┃
+┃ U+2400 – U+243F Control Pictures                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │     ┃
+┃ U+2500 – U+257F Box Drawing                       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+2580 – U+259F Block Elements                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+25A0 – U+25FF Geometric Shapes                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2600 – U+26FF Miscellaneous Symbols             ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2700 - U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+27C0 – U+27EF Misc. Mathematical Symbols-A      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+27F0 – U+27FF Supplemental Arrows-A             ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2800 - U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2900 – U+297F Supplemental Arrows               ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2980 - U+29FF Misc. Mathematical Symbols-B      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2A00 – U+2AFF Supplemental Math Operators       ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2B00 – U+2BFF Misc. Symbols and Arrows          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+3100 - U+312F Bopomofo                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FB00 - U+FB4F Alphabetic Presentation Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+FB50 - U+FDFF Arabic Presentation Forms-A       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FE70 - U+FEFF Arabic Presentation Forms-B       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1D400–U+1D7FF Mathematical Alphan. Symbols      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F0A0–U+1F0DF Playing Cards                     ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1F300–U+1F5FF Misc. Symbols & Pictographs       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+1F800–U+1F8FF Supplemental Arrows-C             ┃  ■  │  ■  │  ■  │  ■  ┃  □  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┠───────────────────────────────────────────────────╂─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ OpenType Features                                 ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+* calt Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃     │     │     │     ┃     │     ┃
+┃ c2sc Small Capitals From Capitals                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dlig Discretionary Ligatures                      ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dnom Denominators                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ fina Arabic Terminal Forms                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ frac Fractions                                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ fwid Fullwidth                                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ init Arabic Initial Forms                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ liga Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃     │     │     │     ┃     │     ┃
+┃ medi Arabic Medial Forms                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ rlig Aarbic Required Ligatures                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ sinf Scientific Inferiors                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss01 Stylistic Set 1 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss02 Stylistic Set 2 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss03 Stylistic Set 3 math fraktur                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss04 Stylistic Set 4 math fraktur bold            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss05 Stylistic Set 5 poker                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss06 Stylistic Set 6 math script                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss07 Stylistic Set 7 math script bold             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss08 Stylistic Set 8 math serif bold              ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss09 Stylistic Set 9 math serif italic            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss10 Stylistic Set 10 math serif bold italic      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss11 Stylistic Set 11 braille w/ helpers          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss12 Stylistic Set 12 universal math symbol       ┃  ■  │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ ss13 Stylistic Set 13 emptyset math symbol        ┃  ■  │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ sups Superscripts                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┛
+
+                                                       ■ = complete       □ = almost complete
+
+                                         
+                                         
+    
+                                                                   
+  * Since this version the directory structure is:     
+  
+                                                                          PragmataPro Regular
+                                                     ┌── Modularspaced ── PragmataPro Italic
+                                                     │                    PragmataPro Bold
+                                                     │                    PragmataPro Bold Italic
+                      ┌── Fonts with ligatures ──────┤                 
+                      │                              │                 
+                      │                              │                    PragmataPro Mono Regular
+                      │                              └── Monospaced ───── PragmataPro Mono Italic                                  
+                      │                                                   PragmataPro Mono Bold
+                      │                                                   PragmataPro Mono Bold Italic
+                      │
+  PragmataPro pack ───┤                   
+                      │
+                      │
+                      │                                                   PragmataPro Regular
+                      │                              ┌── Modularspaced ── PragmataPro Italic
+                      │                              │                    PragmataPro Bold
+                      │                              │                    PragmataPro Bold Italic
+                      └── Fonts without ligatures ───┤                 
+                                                     │                 
+                                                     │                    PragmataPro Mono Regular
+                                                     └── Monospaced ───── PragmataPro Mono Italic     
+                                                                          PragmataPro Mono Bold
+                                                                          PragmataPro Mono Bold Italic
+                                                                         
+    So also Monospaced version can include ligatures and Modular version can works without ligatures                                                                  
+                                                                
+  * Regular: APL set has more consistent symbols now
+                 
+  * all weights: added these ligatures:
+                 [[ ]] %>% %<% ::: !=< >!= >>| |<< <|- -|> <<| |>> <|| ||> ?. #_(
+  
+  * all weights: added also C# ligature as homage to Anders Hejlsberg
+                 
+  * Regular and Italic: improved the TrueType hinting
+                 
+  * all weights: ligatures are now more compatible with IDEs like IntelliJ IDEA
+
+
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.824 TO 0.825
+edited by Fabrizio Schiavi 2017-04
+
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃                                                   ┃ PragmataPro           ┃ PragmataPro Mono      ┃ Essential ┃
+┠───────────────────────────────────────────────────╂─────┬─────┬─────┬─────╂─────┬─────┬─────┬─────╂─────┬─────┨
+┃ Unicode Ranges                                    ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol ┃
+┃                                                   ┠─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃ U+0000 – U+00F7 C0 Controls and Basic Latin       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+┃ U+0100 – U+017F Latin Extended-A                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0180 – U+024F Latin Extended-B                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0250 – U+02AF IPA Extensions                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+02B0 – U+02FF Spacing Modifier Letters          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0300 – U+036F Combining Diacritical Marks       ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+0370 – U+03FF Greek and Coptic                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0400 – U+04FF Cyrillic                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0590 – U+05FF Hebrew                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0600 - U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+1F00 - U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1D00 - U+1D7F Phonetic extensions               ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1E00 - U+1EFF Latin Extended Additional         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+2000 – U+206F General Punctuation               ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2070 – U+209F Superscripts and Subscripts       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+20A0 – U+20CF Currency Symbols                  ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2110 – U+214F Letterlike Symbols                ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2150 – U+218F Number forms                      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2190 – U+21FF Arrows                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  □  │  □  │  □  ┃  □  │     ┃
+┃ U+2200 – U+22FF Mathematical Operators            ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │  □  ┃
+┃ U+2300 – U+23FF Miscellaneous Technical           ┃  □  │     │     │     ┃  □  │     │     │     ┃  □  │     ┃
+┃ U+2400 – U+243F Control Pictures                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │     ┃
+┃ U+2500 – U+257F Box Drawing                       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+2580 – U+259F Block Elements                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+25A0 – U+25FF Geometric Shapes                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+2600 – U+26FF Miscellaneous Symbols             ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2700 - U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+27C0 – U+27EF Misc. Mathematical Symbols-A      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+27F0 – U+27FF Supplemental Arrows-A             ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2800 - U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2900 – U+297F Supplemental Arrows               ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2980 - U+29FF Misc. Mathematical Symbols-B      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2A00 – U+2AFF Supplemental Math Operators       ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2B00 – U+2BFF Misc. Symbols and Arrows          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+3100 - U+312F Bopomofo                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FB00 - U+FB4F Alphabetic Presentation Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+FB50 - U+FDFF Arabic Presentation Forms-A       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FE70 - U+FEFF Arabic Presentation Forms-B       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1D400–U+1D7FF Mathematical Alphan. Symbols      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F0A0–U+1F0DF Playing Cards                     ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+1F300–U+1F5FF Misc. Symbols & Pictographs       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+1F800–U+1F8FF Supplemental Arrows-C             ┃  ■  │  ■  │  ■  │  ■  ┃  □  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┠───────────────────────────────────────────────────╂─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ OpenType Features                                 ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+* calt Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃     │     │     │     ┃     │     ┃
+┃ c2sc Small Capitals From Capitals                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dlig Discretionary Ligatures                      ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dnom Denominators                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ fina Arabic Terminal Forms                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ frac Fractions                                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* fwid Fullwidth                                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ init Arabic Initial Forms                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* liga Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃     │     │     │     ┃     │     ┃
+┃ medi Arabic Medial Forms                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ rlig Aarbic Required Ligatures                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ sinf Scientific Inferiors                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss01 Stylistic Set 1 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss02 Stylistic Set 2 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss03 Stylistic Set 3 math fraktur                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss04 Stylistic Set 4 math fraktur bold            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss05 Stylistic Set 5 poker                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss06 Stylistic Set 6 math script                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss07 Stylistic Set 7 math script bold             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss08 Stylistic Set 8 math serif bold              ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss09 Stylistic Set 9 math serif italic            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss10 Stylistic Set 10 math serif bold italic      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss11 Stylistic Set 11 braille w/ helpers          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss12 Stylistic Set 12 universal math symbol       ┃  ■  │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ ss13 Stylistic Set 13 emptyset math symbol        ┃  ■  │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ sups Superscripts                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┛
+
+                                                       ■ = complete       □ = almost complete
+
+                                         
+                                         
+    
+                                           
+  * all weights: added ligatures to emphasize important message in command line
+                 [FIXME] [TODO] [BUG] [NOTE] [HACK] [MARK]
+                 (thanks to Kim Silkebækken for this cool idea!)
+                 
+  * all weights: added all the icons of Nerd font
+                 more info: http://nerdfonts.com/
+                 
+  * all weights: improved the TrueType hinting above all for Microsoft Windows OSs
+                 
+  * all weights: added ligatures for text chating:
+                 :) :-) :( :-( :D :P :3  
+                                
+  * all weights: added other ligatures for Scala:
+                 :<:  :>:
+                 
+  * Regular: added power symbols to Miscallaneous Technical set
+             ⏻ (U+23EB), ⏼ (U+23EC), ⏽ (U+23ED), ⏾ (U+23EE)
+                 
+  * Regular: improved the design of the entire Fullwidth and Halfwidth letters
+  
+  * all weights: added extra Bow Drawing symbols suggested by Dmtri Nesteruk and others:
+                 1 segment:
+                 ╴ ╵ ╶ ╷    
+                        
+                 
+                 2 segments:
+                 │ ─ ╱ ╲                     ┌ ┐ └ ┘
+                                            
+                 
+                 3:
+                 ├ ┤ ┬ ┴                                                    
+                                                                        
+                 
+                 4:
+                 ┼ ╳                                                                          
+                                                                                            
+                 
+                 5:
+                                                                                
+                                                                                
+                 
+                 6:
+                                                
+                                                
+                 
+                 7:
+                        
+                        
+                 
+                 8:
+                 
+                 
+                 rounded corners:
+                 ╭ ╮ ╰ ╯    
+                 
+                 crossed lines:
+                     
+                 
+                 slashed lines:
+                    
+                 
+                 backets top and bottom:
+                       
+
+
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+
+CHANGES FROM 0.823 TO 0.824
+edited by Fabrizio Schiavi 2016-09
+
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃                                                   ┃ PragmataPro           ┃ PragmataPro Mono      ┃ Essential ┃
+┠───────────────────────────────────────────────────╂─────┬─────┬─────┬─────╂─────┬─────┬─────┬─────╂─────┬─────┨
+┃ Unicode Ranges                                    ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol ┃
+┃                                                   ┠─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃ U+0000 – U+00F7 C0 Controls and Basic Latin       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+┃ U+0100 – U+017F Latin Extended-A                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0180 – U+024F Latin Extended-B                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0250 – U+02AF IPA Extensions                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+02B0 – U+02FF Spacing Modifier Letters          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0300 – U+036F Combining Diacritical Marks       ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+0370 – U+03FF Greek and Coptic                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0400 – U+04FF Cyrillic                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0590 – U+05FF Hebrew                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0600 - U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+1F00 - U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1D00 - U+1D7F Phonetic extensions               ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1E00 - U+1EFF Latin Extended Additional         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+2000 – U+206F General Punctuation               ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2070 – U+209F Superscripts and Subscripts       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+20A0 – U+20CF Currency Symbols                  ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2110 – U+214F Letterlike Symbols                ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2150 – U+218F Number forms                      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2190 – U+21FF Arrows                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  □  │  □  │  □  ┃  □  │     ┃
+┃ U+2200 – U+22FF Mathematical Operators            ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │  □  ┃
+┃ U+2300 – U+23FF Miscellaneous Technical           ┃  □  │     │     │     ┃  □  │     │     │     ┃  □  │     ┃
+┃ U+2400 – U+243F Control Pictures                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │     ┃
+┃ U+2500 – U+257F Box Drawing                       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+2580 – U+259F Block Elements                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+25A0 – U+25FF Geometric Shapes                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2600 – U+26FF Miscellaneous Symbols             ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2700 - U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+27C0 – U+27EF Misc. Mathematical Symbols-A      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+27F0 – U+27FF Supplemental Arrows-A             ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+* U+2800 - U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2900 – U+297F Supplemental Arrows               ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2980 - U+29FF Misc. Mathematical Symbols-B      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2A00 – U+2AFF Supplemental Math Operators       ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2B00 – U+2BFF Misc. Symbols and Arrows          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+3100 - U+312F Bopomofo                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FB00 - U+FB4F Alphabetic Presentation Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+FB50 - U+FDFF Arabic Presentation Forms-A       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FE70 - U+FEFF Arabic Presentation Forms-B       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1D400–U+1D7FF Mathematical Alphan. Symbols      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F0A0–U+1F0DF Playing Cards                     ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1F300–U+1F5FF Misc. Symbols & Pictographs       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+1F800–U+1F8FF Supplemental Arrows-C             ┃  ■  │  ■  │  ■  │  ■  ┃  □  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┠───────────────────────────────────────────────────╂─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ OpenType Features                                 ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+* calt Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃     │     │     │     ┃     │     ┃
+┃ c2sc Small Capitals From Capitals                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dlig Discretionary Ligatures                      ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dnom Denominators                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ fina Arabic Terminal Forms                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ frac Fractions                                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ init Arabic Initial Forms                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* liga Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃     │     │     │     ┃     │     ┃
+┃ medi Arabic Medial Forms                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ rlig Aarbic Required Ligatures                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ sinf Scientific Inferiors                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss01 Stylistic Set 1 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss02 Stylistic Set 2 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss03 Stylistic Set 3 math fraktur                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss04 Stylistic Set 4 math fraktur bold            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss05 Stylistic Set 5 poker                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss06 Stylistic Set 6 math script                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss07 Stylistic Set 7 math script bold             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss08 Stylistic Set 8 math serif bold              ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss09 Stylistic Set 9 math serif italic            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss10 Stylistic Set 10 math serif bold italic      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss11 Stylistic Set 11 braille w/ helpers          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss12 Stylistic Set 12 universal math symbol       ┃  ■  │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ ss13 Stylistic Set 13 emptyset math symbol        ┃  ■  │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ sups Superscripts                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┛
+
+                                                       ■ = complete       □ = almost complete
+
+                                         
+                                         
+    
+                                    
+  * all weights: Ligatures are now Contextual Alternates OpenType features
+                 to be more compatible with the most part of Text Editors
+                 
+  * all weights: added these important ligatures for Scala programming:
+                 ## ++= -+- -\/ \/- <~< <==> =/= ??? |-> |--> |=> |==>
+                 
+  * all weights: improved the design of these ligatures:
+                 <!-- <-- -->      
+                 
+  * all weights: added ligatures to emphasize important message in command line
+                 [INFO] [WARNING] [FATAL] [ERROR] [TRACE] [DEBUG] [WARN] [ERR]
+                 (thanks to Kim Silkebækken for this cool idea!)
+                 
+  * Regular: improved the hinting of numerous glyphs like x, s, twosuperior, threesuperior, questiondown
+  
+  * Regular: improved the design of some math operators
+             emptyset, intersection, union, multiset, multisetmultiplication, multisetunion, plus.circled, 
+             minus.circled, multiply.circled, fraction.circled, operator.circled, ringoperator.circled, 
+             asteriskoperator.circled, equals.circled, dash.circled, squaredplus, squaredminus, squaredtimes, 
+             squareddotoperator, logicalnotReversed, turnedNotSign, blackDiamond, whiteDiamond, blackDiamond, 
+             whiteDiamond, supersetBesideSubset, supersetBesideAndJoinedByDashWithSubset, doubleStrokeNotSign, 
+             reversedDoubleStrokeNotSign, logicalnot
+             (thanks to Miëtek Bak for the important support!)
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.822 TO 0.823
+edited by Fabrizio Schiavi 2016-06
+
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃                                                   ┃ PragmataPro           ┃ PragmataPro Mono      ┃ Essential ┃
+┠───────────────────────────────────────────────────╂─────┬─────┬─────┬─────╂─────┬─────┬─────┬─────╂─────┬─────┨
+┃ Unicode Ranges                                    ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol ┃
+┃                                                   ┠─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃ U+0000 – U+00F7 C0 Controls and Basic Latin       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+┃ U+0100 – U+017F Latin Extended-A                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0180 – U+024F Latin Extended-B                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0250 – U+02AF IPA Extensions                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+02B0 – U+02FF Spacing Modifier Letters          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0300 – U+036F Combining Diacritical Marks       ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+0370 – U+03FF Greek and Coptic                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0400 – U+04FF Cyrillic                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0590 – U+05FF Hebrew                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0600 - U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+1F00 - U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1D00 - U+1D7F Phonetic extensions               ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+1E00 - U+1EFF Latin Extended Additional         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+2000 – U+206F General Punctuation               ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+* U+2070 – U+209F Superscripts and Subscripts       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+20A0 – U+20CF Currency Symbols                  ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2110 – U+214F Letterlike Symbols                ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+2150 – U+218F Number forms                      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2190 – U+21FF Arrows                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  □  │  □  │  □  ┃  □  │     ┃
+┃ U+2200 – U+22FF Mathematical Operators            ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │  □  ┃
+┃ U+2300 – U+23FF Miscellaneous Technical           ┃  □  │     │     │     ┃  □  │     │     │     ┃  □  │     ┃
+┃ U+2400 – U+243F Control Pictures                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │     ┃
+┃ U+2500 – U+257F Box Drawing                       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+2580 – U+259F Block Elements                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+25A0 – U+25FF Geometric Shapes                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+2600 – U+26FF Miscellaneous Symbols             ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+2700 - U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+27C0 – U+27EF Misc. Mathematical Symbols-A      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+27F0 – U+27FF Supplemental Arrows-A             ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+* U+2800 - U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2900 – U+297F Supplemental Arrows               ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+2980 - U+29FF Misc. Mathematical Symbols-B      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2A00 – U+2AFF Supplemental Math Operators       ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2B00 – U+2BFF Misc. Symbols and Arrows          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+3100 - U+312F Bopomofo                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+* U+FB00 - U+FB4F Alphabetic Presentation Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+FB50 - U+FDFF Arabic Presentation Forms-A       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FE70 - U+FEFF Arabic Presentation Forms-B       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+1D400–U+1D7FF Mathematical Alphan. Symbols      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F0A0–U+1F0DF Playing Cards                     ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+1F300–U+1F5FF Misc. Symbols & Pictographs       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+1F800–U+1F8FF Supplemental Arrows-C             ┃  ■  │  ■  │  ■  │  ■  ┃  □  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┠───────────────────────────────────────────────────╂─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ OpenType Features                                 ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ c2sc Small Capitals From Capitals                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dlig Discretionary Ligatures                      ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dnom Denominators                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ fina Arabic Terminal Forms                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ frac Fractions                                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ init Arabic Initial Forms                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* liga Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃     │     │     │     ┃     │     ┃
+┃ medi Arabic Medial Forms                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ rlig Aarbic Required Ligatures                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* sinf Scientific Inferiors                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss01 Stylistic Set 1 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss02 Stylistic Set 2 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss03 Stylistic Set 3 math fraktur                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss04 Stylistic Set 4 math fraktur bold            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss05 Stylistic Set 5 poker                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss06 Stylistic Set 6 math script                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss07 Stylistic Set 7 math script bold             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss08 Stylistic Set 8 math serif bold              ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss09 Stylistic Set 9 math serif italic            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss10 Stylistic Set 10 math serif bold italic      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss11 Stylistic Set 11 braille w/ helpers          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss12 Stylistic Set 12 universal math symbol       ┃  ■  │     │     │     ┃     │     │     │     ┃     │     ┃
+* ss13 Stylistic Set 13 emptyset math symbol        ┃  ■  │     │     │     ┃     │     │     │     ┃     │     ┃
+* sups Superscripts                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┛
+
+                                                       ■ = complete       □ = almost complete
+
+                                         
+                                         
+    
+                                    
+  * Regular: completed the entire set U+1E00-1EFF Latin Extended Additional
+             now ALL the Latin glyphs planned by Unicode are designed!
+             
+  * Regular: completed the entire set U+2980-29FF Misc. Mathematical Symbols-B
+             now ALL the Mathematical glyphs planned by Unicode are designed!
+             
+  * Regular: improved the design of Arabic alphabet 
+             now it’s more Kufi style to improve the readability at low sizes
+                 
+  * all weights: improved the design of Hebrew alphabet
+                 and added important glyphs in the Alphabetic Presentation Form set
+  
+  * Regular: improved the design of many Math symbols
+             /universal now has an alternative version available using OpenType ss12 feature
+             /emptyset now has an alternative version available using OpenType ss13 feature
+             
+  * all weights: now PragmataPro is completely compatible with IntelliJ IDEA software
+                 
+  * all weights: removed U+3000-303F CJK Symbols and Punctuation set 
+                 to avoid conflicts with other CJK fonts
+                 
+  * all weights: added the greek glyphs useful for LaTeX /Digamma and /digamma
+                 
+  * Regular: improved the hinting of Latin sets glyphs
+  
+  * Regular: added the missing subscript and superscript Latin and Greek small letters, 
+             available using OpenType feature "sinf" "sups"
+             
+  * all weights: now Braille alphabet haven’t helpers lines
+                 to use the Braille alphabet with helpers line use 
+                 OpenType Stylistic Set 11 "ss11" feature 
+             
+  * all weights: added these important ligatures:
+                 <--- <!-- --> :=> <->
+                 
+  * Regular: added and improved the design of the glyphs for Computer User Interface
+             http://xahlee.info/comp/unicode_user_interface_icons.html
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.821 TO 0.822
+edited by Fabrizio Schiavi 2016-03
+
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃                                                   ┃ PragmataPro           ┃ PragmataPro Mono      ┃ Essential ┃
+┠───────────────────────────────────────────────────╂─────┬─────┬─────┬─────╂─────┬─────┬─────┬─────╂─────┬─────┨
+┃ Unicode Ranges                                    ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol ┃
+┃                                                   ┠─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃ U+0000 – U+007F C0 Controls and Basic Latin       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+┃ U+0100 – U+017F Latin Extended-A                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0180 – U+024F Latin Extended-B                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+0250 – U+02AF IPA Extensions                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+02B0 – U+02FF Spacing Modifier Letters          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+0300 – U+036F Combining Diacritical Marks       ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃  □  │  □  ┃
+┃ U+0370 – U+03FF Greek and Coptic                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0400 – U+04FF Cyrillic                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0590 – U+05FF Hebrew                            ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0600 - U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+1F00 - U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+1D00 - U+1D7F Phonetic extensions               ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+2000 – U+206F General Punctuation               ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+* U+2070 – U+209F Superscripts and Subscripts       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+20A0 – U+20CF Currency Symbols                  ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2110 – U+214F Letterlike Symbols                ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+* U+2150 – U+218F Number forms                      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+* U+2190 – U+21FF Arrows                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  □  │  □  │  □  ┃  □  │     ┃
+* U+2200 – U+22FF Mathematical Operators            ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │  □  ┃
+┃ U+2300 – U+23FF Miscellaneous Technical           ┃  □  │     │     │     ┃  □  │     │     │     ┃  □  │     ┃
+┃ U+2400 – U+243F Control Pictures                  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃  ■  │     ┃
+┃ U+2500 – U+257F Box Drawing                       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+2580 – U+259F Block Elements                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+25A0 – U+25FF Geometric Shapes                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+2600 – U+26FF Miscellaneous Symbols             ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+2700 - U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+27C0 – U+27EF Misc. Mathematical Symbols-A      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+* U+27F0 – U+27FF Supplemental Arrows-A             ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2800 - U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+2900 – U+297F Supplemental Arrows               ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+2980 - U+29FF Misc. Mathematical Symbols-B      ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+* U+2A00 – U+2AFF Supplemental Math Operators       ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+* U+2B00 – U+2BFF Misc. Symbols and Arrows          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+3000 - U+303F CJK Symbols and Punctuation       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+3100 - U+312F Bopomofo                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FB50 - U+FDFF Arabic Presentation Forms-A       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FE70 - U+FEFF Arabic Presentation Forms-B       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+1D400–U+1D7FF Mathematical Alphan. Symbols      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F0A0–U+1F0DF Playing Cards                     ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+1F300–U+1F5FF Misc. Symbols & Pictographs       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+* U+1F800–U+1F8FF Supplemental Arrows-C             ┃  ■  │  ■  │  ■  │  ■  ┃  □  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┠───────────────────────────────────────────────────╂─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ OpenType Features                                 ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ c2sc Small Capitals From Capitals                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dlig Discretionary Ligatures                      ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ dnom Denominators                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ fina Arabic Terminal Forms                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ frac Fractions                                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ init Arabic Initial Forms                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* liga Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃     │     │     │     ┃     │     ┃
+┃ medi Arabic Medial Forms                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ rlig Aarbic Required Ligatures                    ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ sinf Scientific Inferiors                         ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss01 Stylistic Set 1 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss02 Stylistic Set 2 ampersand                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss03 Stylistic Set 3 math fraktur                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss04 Stylistic Set 4 math fraktur bold            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss05 Stylistic Set 5 poker                        ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ ss06 Stylistic Set 6 math script                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss07 Stylistic Set 7 math script bold             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss08 Stylistic Set 8 math serif bold              ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss09 Stylistic Set 9 math serif italic            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss10 Stylistic Set 10 math serif bold italic      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ sups Superscripts                                 ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┛
+
+                                                       ■ = complete       □ = almost complete
+
+                                         
+                                         
+    
+                     
+  * all weights: the glyphs are been scaled to become exactly 0.5 em² wide (1024)
+                 so they are compatible with CJK (Chinese/Japanese/Korean) characters, 
+                 where every character are exactly 1 em² wide (2048)
+                 
+  * all weights: all the arrows, planned by Unicode until now, are been designed
+                 
+  * Regular: improved the design of U+2200 – U+22FF Mathematical Operators set
+             added the U+2200 – U+22FF Mathematical Operators set
+             added the U+2980 - U+29FF Misc. Mathematical Symbols-B set
+             added the U+2A00 – U+2AFF Supplemental Math Operators set
+             under the precious supervision of Pierre Le Marre
+             
+  * all weights of PragmataPro: improved the design of ! m + - < = > ~ ¡ ÷ 
+             
+  * all weights of PragmataPro: added some important ligatures, 
+                                changed the design of ligatures that includes < and >
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.820 TO 0.821
+edited by Fabrizio Schiavi 2015-07
+
+
+
+  * From this release PragmataPro family will be composed by 8 weights:
+  
+         PragmataPro -Regular
+                     -Bold
+                     -Italic
+                     -BoldItalic
+                
+         PragmataPro Mono -Regular
+                          -Bold
+                          -Italic
+                          -BoldItalic
+    
+    PragmataPro contents all the glyphs as the useful ligatures for Haskell, Scala…
+    
+    PragmataPro MONO weights are really monospaced and NOT includes ligatures
+    to avoid issues with some softwares   
+    
+     
+
+  ┌───────────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+  │ Unicode Range                                     │ Reg │ Bol │ Ita │ BIt │
+  ├───────────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+  │ U+0000 – U+007F C0 Controls and Basic Latin       │  ■  │  ■  │  ■  │  ■  │
+  │ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    │  ■  │  ■  │  ■  │  ■  │
+  │ U+0100 – U+017F Latin Extended-A                  │  ■  │  ■  │  ■  │  ■  │
+  │ U+0180 – U+024F Latin Extended-B                  │  ■  │     │     │     │
+  │ U+0250 – U+02AF IPA Extensions                    │  ■  │     │     │     │
+  │ U+02B0 – U+02FF Spacing Modifier Letters          │  ■  │     │     │     │
+  │ U+0300 – U+036F Combining Diacritical Marks       │  □  │  □  │  □  │  □  │
+  │ U+0370 – U+03FF Greek and Coptic                  │  □  │  □  │  □  │  □  │
+  │ U+0400 – U+04FF Cyrillic                          │  □  │  □  │  □  │  □  │
+  │ U+0590 – U+05FF Hebrew                            │  ■  │  □  │  □  │  □  │
+  │ U+0600 - U+06FF Arabic                            │  □  │  □  │  □  │  □  │
+  │ U+1F00 - U+1FFF Greek Extended                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+1D00 - U+1D7F Phonetic extensions               │  ■  │     │     │     │
+* │ U+2000 – U+206F General Punctuation               │  □  │  □  │  □  │  □  │
+  │ U+2070 – U+209F Superscripts and Subscripts       │  ■  │     │     │     │
+  │ U+20A0 – U+20CF Currency Symbols                  │  □  │     │     │     │
+  │ U+2110 – U+214F Letterlike Symbols                │  ■  │  □  │  □  │  □  │
+  │ U+2190 – U+21FF Arrows                            │  □  │     │     │     │
+  │ U+2200 – U+22FF Mathematical Operators            │  ■  │     │     │     │
+  │ U+2300 – U+23FF Miscellaneous Technical           │  □  │     │     │     │
+  │ U+2400 – U+243F Control Pictures                  │  ■  │     │     │     │
+  │ U+2500 – U+257F Box Drawing                       │  ■  │  ■  │  ■  │  ■  │
+  │ U+2580 – U+259F Block Elements                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+25A0 – U+25FF Geometric Shapes                  │  ■  │  ■  │  ■  │  ■  │ 
+* │ U+2600 – U+26FF Miscellaneous Symbols             │  □  │  □  │  □  │  □  │
+* │ U+2700 - U+27BF Dingbats                          │  □  │  □  │  □  │  □  │
+  │ U+27C0 – U+27EF Misc. Mathematical Symbols-A      │  ■  │     │     │     │
+  │ U+2800 - U+28FF Braille                           │  ■  │  ■  │  ■  │  ■  │
+  │ U+2900 – U+297F Supplemental Arrows               │  □  │     │     │     │
+  │ U+3000 - U+303F CJK Symbols and Punctuation       │  □  │     │     │     │
+  │ U+3100 - U+312F Bopomofo                          │  ■  │     │     │     │
+  │ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     │  □  │     │     │     │
+  │ U+FB50 - U+FDFF Arabic Presentation Forms-A       │  □  │     │     │     │
+  │ U+FE70 - U+FEFF Arabic Presentation Forms-B       │  ■  │     │     │     │
+* │ U+1D400–U+1D7FF Mathematical Alphan. Symbols      │  ■  │  ■  │  ■  │  ■  │
+  │ U+1F0A0–U+1F0DF Playing Cards                     │  ■  │     │     │     │
+  └───────────────────────────────────────────────────────────────────────────┘
+                                         ■ = complete       □ = almost complete
+                                         
+                                         
+    
+                     
+  * all weights: “Mathematical Alphanumeric Symbols” set is complete
+                 added every Greek glyphs and missing double stuck letters
+                 all TrueType hand hinted!
+                 
+  * all weights: added numerous symbols to the “Miscellaneous Symbols” and “Dingbats” sets
+                 every symbol was not consider as usual like a clipart but 
+                 typographically adapted to fit perfectly with the text
+                 
+  * all weights of PragmataPro: added some important ligatures, 
+                                changed the design of >= and <= ligatures
+  
+  * all weights: improved the TrueType hinting of & ( ) > < * to be used as aliased texts
+             
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+
+CHANGES FROM 0.819 TO 0.820
+edited by Fabrizio Schiavi 2014-12
+
+
+    
+
+  ┌───────────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+  │ Unicode Range                                     │ Reg │ Bol │ Ita │ BIt │
+  ├───────────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+  │ U+0000 – U+007F C0 Controls and Basic Latin       │  ■  │  ■  │  ■  │  ■  │
+  │ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    │  ■  │  ■  │  ■  │  ■  │
+  │ U+0100 – U+017F Latin Extended-A                  │  ■  │  ■  │  ■  │  ■  │
+  │ U+0180 – U+024F Latin Extended-B                  │  ■  │     │     │     │
+  │ U+0250 – U+02AF IPA Extensions                    │  ■  │     │     │     │
+  │ U+02B0 – U+02FF Spacing Modifier Letters          │  ■  │     │     │     │
+  │ U+0300 – U+036F Combining Diacritical Marks       │  □  │  □  │  □  │  □  │
+  │ U+0370 – U+03FF Greek and Coptic                  │  □  │  □  │  □  │  □  │
+  │ U+0400 – U+04FF Cyrillic                          │  □  │  □  │  □  │  □  │
+  │ U+0590 – U+05FF Hebrew                            │  ■  │  □  │  □  │  □  │
+  │ U+0600 - U+06FF Arabic                            │  □  │  □  │  □  │  □  │
+  │ U+1F00 - U+1FFF Greek Extended                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+1D00 - U+1D7F Phonetic extensions               │  ■  │     │     │     │
+  │ U+2000 – U+206F General Punctuation               │  □  │     │     │     │
+  │ U+2070 – U+209F Superscripts and Subscripts       │  ■  │     │     │     │
+  │ U+20A0 – U+20CF Currency Symbols                  │  □  │     │     │     │
+  │ U+2110 – U+214F Letterlike Symbols                │  ■  │  □  │  □  │  □  │
+* │ U+2190 – U+21FF Arrows                            │  □  │     │     │     │
+  │ U+2200 – U+22FF Mathematical Operators            │  ■  │     │     │     │
+  │ U+2300 – U+23FF Miscellaneous Technical           │  □  │     │     │     │
+  │ U+2400 – U+243F Control Pictures                  │  ■  │     │     │     │
+  │ U+2500 – U+257F Box Drawing                       │  ■  │  ■  │  ■  │  ■  │
+  │ U+2580 – U+259F Block Elements                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+25A0 – U+25FF Geometric Shapes                  │  ■  │  ■  │  ■  │  ■  │ 
+  │ U+2600 – U+26FF Miscellaneous Symbols             │  □  │     │     │     │
+  │ U+2700 - U+27BF Dingbats                          │  □  │  □  │  □  │  □  │
+  │ U+27C0 – U+27EF Misc. Mathematical Symbols-A      │  ■  │     │     │     │
+  │ U+2800 - U+28FF Braille                           │  ■  │  ■  │  ■  │  ■  │
+  │ U+2900 – U+297F Supplemental Arrows               │  □  │     │     │     │
+  │ U+3000 - U+303F CJK Symbols and Punctuation       │  □  │     │     │     │
+  │ U+3100 - U+312F Bopomofo                          │  ■  │     │     │     │
+  │ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     │  □  │     │     │     │
+  │ U+FB50 - U+FDFF Arabic Presentation Forms-A       │  □  │     │     │     │
+  │ U+FE70 - U+FEFF Arabic Presentation Forms-B       │  ■  │     │     │     │
+  │ U+1D400–U+1D7FF Mathematical Alphan. Symbols      │  □  │  □  │  □  │  □  │
+  │ U+1F0A0–U+1F0DF Playing Cards                     │  ■  │     │     │     │
+  └───────────────────────────────────────────────────────────────────────────┘
+                                         ■ = complete       □ = almost complete
+                                         
+                                         
+
+  * all weights: added all the ligatures for Haskell, Scala, Swift, C++, etc.
+                 the complete list of ligatures available are downloadable 
+                 at this url
+                 
+                 http://www.fsd.it/fonts/pragmatapro/PragmataPro_Haskell_liga.png
+                 
+                 (a big thanks to Tulushev and the friends at Reddit/Haskell!)
+                 
+  * all weights: improved $ dollar sign
+                          > greater 
+                          < less
+                          [ bracketleft
+                          ] bracketright
+                          { braceleft
+                          } braceright
+    
+  * Regular: added necessary glyphs for Isabelle and Agda programming
+             U+21D1 ⇑ arrowdbltop
+             U+21D3 ⇓ arrowdblbottom 
+             (thanks liamoc!)
+             
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.818 TO 0.819
+edited by Fabrizio Schiavi 2014-11
+
+
+    
+
+  ┌───────────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+  │ Unicode Range                                     │ Reg │ Bol │ Ita │ BIt │
+  ├───────────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+  │ U+0000 – U+007F C0 Controls and Basic Latin       │  ■  │  ■  │  ■  │  ■  │
+  │ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    │  ■  │  ■  │  ■  │  ■  │
+  │ U+0100 – U+017F Latin Extended-A                  │  ■  │  ■  │  ■  │  ■  │
+  │ U+0180 – U+024F Latin Extended-B                  │  ■  │     │     │     │
+  │ U+0250 – U+02AF IPA Extensions                    │  ■  │     │     │     │
+  │ U+02B0 – U+02FF Spacing Modifier Letters          │  ■  │     │     │     │
+  │ U+0300 – U+036F Combining Diacritical Marks       │  □  │  □  │  □  │  □  │
+  │ U+0370 – U+03FF Greek and Coptic                  │  □  │  □  │  □  │  □  │
+  │ U+0400 – U+04FF Cyrillic                          │  □  │  □  │  □  │  □  │
+  │ U+0590 – U+05FF Hebrew                            │  ■  │  □  │  □  │  □  │
+  │ U+0600 - U+06FF Arabic                            │  □  │  □  │  □  │  □  │
+  │ U+1F00 - U+1FFF Greek Extended                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+1D00 - U+1D7F Phonetic extensions               │  ■  │     │     │     │
+  │ U+2000 – U+206F General Punctuation               │  □  │     │     │     │
+  │ U+2070 – U+209F Superscripts and Subscripts       │  ■  │     │     │     │
+* │ U+20A0 – U+20CF Currency Symbols                  │  □  │     │     │     │
+  │ U+2110 – U+214F Letterlike Symbols                │  ■  │  □  │  □  │  □  │
+* │ U+2190 – U+21FF Arrows                            │  □  │     │     │     │
+* │ U+2200 – U+22FF Mathematical Operators            │  ■  │     │     │     │
+  │ U+2300 – U+23FF Miscellaneous Technical           │  □  │     │     │     │
+  │ U+2400 – U+243F Control Pictures                  │  ■  │     │     │     │
+  │ U+2500 – U+257F Box Drawing                       │  ■  │  ■  │  ■  │  ■  │
+  │ U+2580 – U+259F Block Elements                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+25A0 – U+25FF Geometric Shapes                  │  ■  │  ■  │  ■  │  ■  │ 
+* │ U+2600 – U+26FF Miscellaneous Symbols             │  □  │     │     │     │
+  │ U+2700 - U+27BF Dingbats                          │  □  │  □  │  □  │  □  │
+  │ U+27C0 – U+27EF Misc. Mathematical Symbols-A      │  ■  │     │     │     │
+  │ U+2800 - U+28FF Braille                           │  ■  │  ■  │  ■  │  ■  │
+* │ U+2900 – U+297F Supplemental Arrows               │  □  │     │     │     │
+  │ U+3000 - U+303F CJK Symbols and Punctuation       │  □  │     │     │     │
+  │ U+3100 - U+312F Bopomofo                          │  ■  │     │     │     │
+  │ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     │  □  │     │     │     │
+  │ U+FB50 - U+FDFF Arabic Presentation Forms-A       │  □  │     │     │     │
+  │ U+FE70 - U+FEFF Arabic Presentation Forms-B       │  ■  │     │     │     │
+* │ U+1D400–U+1D7FF Mathematical Alphan. Symbols      │  □  │  □  │  □  │  □  │
+  │ U+1F0A0–U+1F0DF Playing Cards                     │  ■  │     │     │     │
+  └───────────────────────────────────────────────────────────────────────────┘
+                                         ■ = complete       □ = almost complete
+                                         
+                                         
+
+  * all weights: added all the glyphs the Serif Bold, Italic and Bold Italic glyphs
+    for Mathematical Alphanumeric Symbols
+    
+  * all weights: improved & ampersand 
+                          % percent
+                          ( parentesis left
+                          ) parentesis right
+    
+  * Regular: added necessary glyphs for Haskell programming 
+             U+21D0 arrowdblleft
+             U+21D2 arrowdblright
+             U+2919 leftwardsarrowtail
+             U+291A rightwardarrowtail
+             U+291B leftdblarrowtail
+             U+291C rightdblarrowtail
+             (thanks Jeffrey Chu!)
+             
+             improved: 
+             U+2295 circleplus
+             U+2296 circleminus
+             U+2297 circlemultiply
+             U+2298 circledivide
+             U+2299 circledot
+             U+229A circlering
+             U+229B circleasterisk
+             U+229C circleequal
+             U+229D circleminus1
+             U+229E squareplus
+             U+229F squareminus
+             U+22A0 squaremultiply
+             U+22A1 squaredot
+		     U+2218 ringoperator
+			 U+22C5 dotmath
+			 U+22C6 staroperator
+			 U+235F Log
+			 
+  * Italic and Bold Italic: improved the design of 'a' and 'g'
+  
+  * Regular: added necessary glyphs for Agda programming:
+             U+2983 leftwhitecurlybrkt
+             U+2984 rightwhitecurlybrkt
+             (thanks Ichiro Yoshida!)
+			 
+  * Regular: added some symbols to Misc. Symbols set
+             U+2669 note
+             U+266A musicalnote
+             U+266B musicalnotedbl
+             U+266C musicalnotedbl2
+             U+2690 whiteflag
+             U+2691 blackflag
+             
+  * Regular: added Ruble sign U+20BD
+             
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.817 TO 0.818
+edited by Fabrizio Schiavi 2014-09
+
+
+    
+
+  ┌───────────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+  │ Unicode Range                                     │ Reg │ Bol │ Ita │ BIt │
+  ├───────────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+  │ U+0000 – U+007F C0 Controls and Basic Latin       │  ■  │  ■  │  ■  │  ■  │
+  │ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    │  ■  │  ■  │  ■  │  ■  │
+  │ U+0100 – U+017F Latin Extended-A                  │  ■  │  ■  │  ■  │  ■  │
+  │ U+0180 – U+024F Latin Extended-B                  │  ■  │     │     │     │
+  │ U+0250 – U+02AF IPA Extensions                    │  ■  │     │     │     │
+  │ U+02B0 – U+02FF Spacing Modifier Letters          │  ■  │     │     │     │
+* │ U+0300 – U+036F Combining Diacritical Marks       │  □  │  □  │  □  │  □  │
+  │ U+0370 – U+03FF Greek and Coptic                  │  □  │  □  │  □  │  □  │
+  │ U+0400 – U+04FF Cyrillic                          │  □  │  □  │  □  │  □  │
+  │ U+0590 – U+05FF Hebrew                            │  ■  │  □  │  □  │  □  │
+  │ U+0600 - U+06FF Arabic                            │  □  │  □  │  □  │  □  │
+* │ U+1F00 - U+1FFF Greek Extended                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+1D00 - U+1D7F Phonetic extensions               │  ■  │     │     │     │
+  │ U+2000 – U+206F General Punctuation               │  □  │     │     │     │
+  │ U+2070 – U+209F Superscripts and Subscripts       │  ■  │     │     │     │
+  │ U+20A0 – U+20CF Currency Symbols                  │  □  │     │     │     │
+* │ U+2110 – U+214F Letterlike Symbols                │  ■  │  □  │  □  │  □  │
+  │ U+2190 – U+21FF Arrows                            │  □  │     │     │     │
+  │ U+2200 – U+22FF Mathematical Operators            │  ■  │     │     │     │
+  │ U+2300 – U+23FF Miscellaneous Technical           │  □  │     │     │     │
+  │ U+2400 – U+243F Control Pictures                  │  ■  │     │     │     │
+  │ U+2500 – U+257F Box Drawing                       │  ■  │  ■  │  ■  │  ■  │
+  │ U+2580 – U+259F Block Elements                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+25A0 – U+25FF Geometric Shapes                  │  ■  │  ■  │  ■  │  ■  │ 
+  │ U+2600 – U+26FF Miscellaneous Symbols             │  □  │     │     │     │
+  │ U+2700 - U+27BF Dingbats                          │  □  │  □  │  □  │  □  │
+  │ U+27C0 – U+27EF Misc. Mathematical Symbols-A      │  ■  │     │     │     │
+  │ U+2800 - U+28FF Braille                           │  ■  │  ■  │  ■  │  ■  │
+  │ U+3000 - U+303F CJK Symbols and Punctuation       │  □  │     │     │     │
+  │ U+3100 - U+312F Bopomofo                          │  ■  │     │     │     │
+  │ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     │  □  │     │     │     │
+  │ U+FB50 - U+FDFF Arabic Presentation Forms-A       │  □  │     │     │     │
+  │ U+FE70 - U+FEFF Arabic Presentation Forms-B       │  ■  │     │     │     │
+* │ U+1D400–U+1D7FF Mathematical Alphan. Symbols      │  □  │  □  │  □  │  □  │
+  │ U+1F0A0–U+1F0DF Playing Cards                     │  ■  │     │     │     │
+  └───────────────────────────────────────────────────────────────────────────┘
+                                         ■ = complete       □ = almost complete
+                                         
+                                         
+
+  * all weights: added all the glyphs of "Greek Extended" range
+  
+  * all weights: added the glyphs of "Combining Diacritical Marks" range
+  
+  * all weights: added all the glyphs the Script Regular and Bold glyphs
+    for Mathematical Alphanumeric Symbols
+    
+  * Regular: completed the Letterlike Symbols set
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.816 TO 0.817
+edited by Fabrizio Schiavi 2014-04
+
+
+    
+
+  ┌───────────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+  │ Unicode Range                                     │ Reg │ Bol │ Ita │ BIt │
+  ├───────────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+  │ U+0000 – U+007F C0 Controls and Basic Latin       │  ■  │  ■  │  ■  │  ■  │
+  │ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    │  ■  │  ■  │  ■  │  ■  │
+  │ U+0100 – U+017F Latin Extended-A                  │  ■  │  ■  │  ■  │  ■  │
+  │ U+0180 – U+024F Latin Extended-B                  │  ■  │     │     │     │
+  │ U+0250 – U+02AF IPA Extensions                    │  ■  │     │     │     │
+  │ U+02B0 – U+02FF Spacing Modifier Letters          │  ■  │     │     │     │
+  │ U+0300 – U+036F Combining Diacritical Marks       │  □  │     │     │     │
+  │ U+0370 – U+03FF Greek and Coptic                  │  □  │  □  │  □  │  □  │
+  │ U+0400 – U+04FF Cyrillic                          │  □  │  □  │  □  │  □  │
+  │ U+0590 – U+05FF Hebrew                            │  ■  │  □  │  □  │  □  │
+  │ U+0600 - U+06FF Arabic                            │  □  │  □  │  □  │  □  │
+  │ U+1D00 - U+1D7F Phonetic extensions               │  ■  │     │     │     │
+  │ U+2000 – U+206F General Punctuation               │  □  │     │     │     │
+  │ U+2070 – U+209F Superscripts and Subscripts       │  ■  │     │     │     │
+  │ U+20A0 – U+20CF Currency Symbols                  │  □  │     │     │     │
+  │ U+2110 – U+214F Letterlike Symbols                │  □  │     │     │     │
+  │ U+2190 – U+21FF Arrows                            │  □  │     │     │     │
+  │ U+2200 – U+22FF Mathematical Operators            │  ■  │     │     │     │
+  │ U+2300 – U+23FF Miscellaneous Technical           │  □  │     │     │     │
+  │ U+2400 – U+243F Control Pictures                  │  ■  │     │     │     │
+  │ U+2500 – U+257F Box Drawing                       │  ■  │  ■  │  ■  │  ■  │
+  │ U+2580 – U+259F Block Elements                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+25A0 – U+25FF Geometric Shapes                  │  ■  │  ■  │  ■  │  ■  │ 
+  │ U+2600 – U+26FF Miscellaneous Symbols             │  □  │     │     │     │
+* │ U+2700 - U+27BF Dingbats                          │  □  │  □  │  □  │  □  │
+  │ U+27C0 – U+27EF Misc. Mathematical Symbols-A      │  ■  │     │     │     │
+  │ U+2800 - U+28FF Braille                           │  ■  │  ■  │  ■  │  ■  │
+  │ U+3000 - U+303F CJK Symbols and Punctuation       │  □  │     │     │     │
+  │ U+3100 - U+312F Bopomofo                          │  ■  │     │     │     │
+  │ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     │  □  │     │     │     │
+  │ U+FB50 - U+FDFF Arabic Presentation Forms-A       │  □  │     │     │     │
+  │ U+FE70 - U+FEFF Arabic Presentation Forms-B       │  ■  │     │     │     │
+  │ U+1D400–U+1D7FF Mathematical Alphan. Symbols      │  □  │  □  │  □  │  □  │
+  │ U+1F0A0–U+1F0DF Playing Cards                     │  ■  │     │     │     │
+  └───────────────────────────────────────────────────────────────────────────┘
+                                         ■ = complete       □ = almost complete
+                                         
+                                         
+
+  * all weights: added all the necessary glyphs to use correctly the Angoster
+                 ZSH theme,
+                 for more info: http://fsd.tumblr.com/post/80962745570/pragmatapro-0-817-will-be-agnoster-ready-i-really
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+
+CHANGES FROM 0.815 TO 0.816
+edited by Fabrizio Schiavi 2014-03
+
+
+    
+
+  ┌───────────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+  │ Unicode Range                                     │ Reg │ Bol │ Ita │ BIt │
+  ├───────────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+  │ U+0000 – U+007F C0 Controls and Basic Latin       │  ■  │  ■  │  ■  │  ■  │
+  │ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    │  ■  │  ■  │  ■  │  ■  │
+  │ U+0100 – U+017F Latin Extended-A                  │  ■  │  ■  │  ■  │  ■  │
+  │ U+0180 – U+024F Latin Extended-B                  │  ■  │     │     │     │
+  │ U+0250 – U+02AF IPA Extensions                    │  ■  │     │     │     │
+  │ U+02B0 – U+02FF Spacing Modifier Letters          │  ■  │     │     │     │
+  │ U+0300 – U+036F Combining Diacritical Marks       │  □  │     │     │     │
+  │ U+0370 – U+03FF Greek and Coptic                  │  □  │  □  │  □  │  □  │
+  │ U+0400 – U+04FF Cyrillic                          │  □  │  □  │  □  │  □  │
+* │ U+0590 – U+05FF Hebrew                            │  ■  │  □  │  □  │  □  │
+* │ U+0600 - U+06FF Arabic                            │  □  │  □  │  □  │  □  │
+  │ U+1D00 - U+1D7F Phonetic extensions               │  ■  │     │     │     │
+  │ U+2000 – U+206F General Punctuation               │  □  │     │     │     │
+  │ U+2070 – U+209F Superscripts and Subscripts       │  ■  │     │     │     │
+  │ U+20A0 – U+20CF Currency Symbols                  │  □  │     │     │     │
+  │ U+2110 – U+214F Letterlike Symbols                │  □  │     │     │     │
+  │ U+2190 – U+21FF Arrows                            │  □  │     │     │     │
+  │ U+2200 – U+22FF Mathematical Operators            │  ■  │     │     │     │
+  │ U+2300 – U+23FF Miscellaneous Technical           │  □  │     │     │     │
+  │ U+2400 – U+243F Control Pictures                  │  ■  │     │     │     │
+  │ U+2500 – U+257F Box Drawing                       │  ■  │  ■  │  ■  │  ■  │
+  │ U+2580 – U+259F Block Elements                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+25A0 – U+25FF Geometric Shapes                  │  ■  │  ■  │  ■  │  ■  │ 
+  │ U+2600 – U+26FF Miscellaneous Symbols             │  □  │     │     │     │
+  │ U+27C0 – U+27EF Misc. Mathematical Symbols-A      │  ■  │     │     │     │
+  │ U+2800 - U+28FF Braille                           │  ■  │  ■  │  ■  │  ■  │
+* │ U+3000 - U+303F CJK Symbols and Punctuation       │  □  │     │     │     │
+* │ U+3100 - U+312F Bopomofo                          │  ■  │     │     │     │
+* │ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     │  □  │     │     │     │
+* │ U+FB50 - U+FDFF Arabic Presentation Forms-A       │  □  │     │     │     │
+* │ U+FE70 - U+FEFF Arabic Presentation Forms-B       │  ■  │     │     │     │
+  │ U+1D400–U+1D7FF Mathematical Alphan. Symbols      │  □  │  □  │  □  │  □  │
+* │ U+1F0A0–U+1F0DF Playing Cards                     │  ■  │     │     │     │
+  └───────────────────────────────────────────────────────────────────────────┘
+                                         ■ = complete       □ = almost complete
+                                         
+                                         
+
+  * Regular: added all the necessary glyphs to read and write in Arabic!
+    
+  * Regular: added all the necessary glyphs to read and write in Bopomofo
+  
+  * Regular: added Small Caps as OpenType feature 'c2sc'
+  
+  * Regular: added the Unicode range Playing Cards;
+             added a OpenType feature to recall Playing Cards 
+             using Stylistic Set 05;
+             for example:   (Ah)    becomes    "Ace of Heart with border"
+             
+             Other kind of playing cards appears using 'dlig' OT feature
+             for example:    Ah     becomes    "Ace of Heart"
+                            (Ah     becomes    "Ace of Heart with card corner"
+                            
+             Download the picture at this url to better understand how to use
+             PragmataPro Playing Cards
+             http://www.fsd.it/fonts/pragmatapro/PragmataPro_PokerCards.png
+             
+  * Regular: improved the design of 'Z', 'Z.alt01' and 'ß'
+  
+  * Regular: improved the hinting of 'less' and 'greater' brachets
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.814 TO 0.815
+edited by Fabrizio Schiavi 2014-02
+
+
+    
+
+  ┌───────────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+  │ Unicode Range                                     │ Reg │ Bol │ Ita │ BIt │
+  ├───────────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+* │ U+0000 – U+007F C0 Controls and Basic Latin       │  ■  │  ■  │  ■  │  ■  │
+  │ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    │  ■  │  ■  │  ■  │  ■  │
+  │ U+0100 – U+017F Latin Extended-A                  │  ■  │  ■  │  ■  │  ■  │
+  │ U+0180 – U+024F Latin Extended-B                  │  ■  │     │     │     │
+  │ U+0250 – U+02AF IPA Extensions                    │  ■  │     │     │     │
+  │ U+02B0 – U+02FF Spacing Modifier Letters          │  ■  │     │     │     │
+  │ U+0300 – U+036F Combining Diacritical Marks       │  □  │     │     │     │
+  │ U+0370 – U+03FF Greek and Coptic                  │  □  │  □  │  □  │  □  │
+  │ U+0400 – U+04FF Cyrillic                          │  □  │  □  │  □  │  □  │
+  │ U+0590 – U+05FF Hebrew                            │  ■  │     │     │     │
+* │ U+1D00 - U+1D7F Phonetic extensions               │  ■  │     │     │     │
+  │ U+2000 – U+206F General Punctuation               │  □  │     │     │     │
+  │ U+2070 – U+209F Superscripts and Subscripts       │  ■  │     │     │     │
+  │ U+20A0 – U+20CF Currency Symbols                  │  □  │     │     │     │
+  │ U+2110 – U+214F Letterlike Symbols                │  □  │     │     │     │
+  │ U+2190 – U+21FF Arrows                            │  □  │     │     │     │
+  │ U+2200 – U+22FF Mathematical Operators            │  ■  │     │     │     │
+  │ U+2300 – U+23FF Miscellaneous Technical           │  □  │     │     │     │
+  │ U+2400 – U+243F Control Pictures                  │  ■  │     │     │     │
+  │ U+2500 – U+257F Box Drawing                       │  ■  │  ■  │  ■  │  ■  │
+  │ U+2580 – U+259F Block Elements                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+25A0 – U+25FF Geometric Shapes                  │  ■  │  ■  │  ■  │  ■  │ 
+  │ U+2600 – U+26FF Miscellaneous Symbols             │  □  │     │     │     │
+  │ U+27C0 – U+27EF Misc. Mathematical Symbols-A      │  ■  │     │     │     │
+  │ U+2800 - U-28FF Braille                           │  ■  │  ■  │  ■  │  ■  │
+* │ U+1D400–U+1D7FF Mathematical Alphan. Symbols      │  □  │  □  │  □  │  □  │
+  └───────────────────────────────────────────────────────────────────────────┘
+                                         ■ = complete       □ = almost complete
+                                         
+                                         
+
+  * added all the weight the Fraktur Regular and Bold glyphs
+    for Mathematical Alphanumeric Symbols
+    
+  * added to Regular weight Phonetic Extension range    
+  
+  * the design of 'M' 'N' 'Æ' and '¥' was improved in all weights
+
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.813 TO 0.814
+edited by Fabrizio Schiavi 2013-12
+
+
+    
+
+  ┌───────────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+  │ Unicode Range                                     │ Reg │ Bol │ Ita │ BIt │
+  ├───────────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+* │ U+0000 – U+007F C0 Controls and Basic Latin       │  ■  │  ■  │  ■  │  ■  │
+  │ U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    │  ■  │  ■  │  ■  │  ■  │
+  │ U+0100 – U+017F Latin Extended-A                  │  ■  │  ■  │  ■  │  ■  │
+  │ U+0180 – U+024F Latin Extended-B                  │  ■  │     │     │     │
+* │ U+0250 – U+02AF IPA Extensions                    │  ■  │     │     │     │
+* │ U+02B0 – U+02FF Spacing Modifier Letters          │  ■  │     │     │     │
+* │ U+0300 – U+036F Combining Diacritical Marks       │  □  │     │     │     │
+* │ U+0370 – U+03FF Greek and Coptic                  │  □  │  □  │  □  │  □  │
+  │ U+0400 – U+04FF Cyrillic                          │  □  │  □  │  □  │  □  │
+  │ U+0590 – U+05FF Hebrew                            │  ■  │     │     │     │
+  │ U+2000 – U+206F General Punctuation               │  □  │     │     │     │
+  │ U+2070 – U+209F Superscripts and Subscripts       │  ■  │     │     │     │
+  │ U+20A0 – U+20CF Currency Symbols                  │  □  │     │     │     │
+  │ U+2110 – U+214F Letterlike Symbols                │  □  │     │     │     │
+  │ U+2190 – U+21FF Arrows                            │  □  │     │     │     │
+  │ U+2200 – U+22FF Mathematical Operators            │  ■  │     │     │     │
+  │ U+2300 – U+23FF Miscellaneous Technical           │  □  │     │     │     │
+  │ U+2400 – U+243F Control Pictures                  │  ■  │     │     │     │
+* │ U+2500 – U+257F Box Drawing                       │  ■  │  ■  │  ■  │  ■  │
+* │ U+2580 – U+259F Block Elements                    │  ■  │  ■  │  ■  │  ■  │
+  │ U+25A0 – U+25FF Geometric Shapes                  │  ■  │  ■  │  ■  │  ■  │ 
+  │ U+2600 – U+26FF Miscellaneous Symbols             │  □  │     │     │     │
+  │ U+27C0 – U+27EF Misc. Mathematical Symbols-A      │  ■  │     │     │     │
+* │ U+2800 - U-28FF Braille                           │  ■  │  ■  │  ■  │  ■  │
+* │ U+1D400–U+1D7FF Mathematical Alphan. Symbols      │  □  │     │     │     │
+  └───────────────────────────────────────────────────────────────────────────┘
+                                         ■ = complete       □ = almost complete
+                                         
+                                         
+
+ 
+  * added to Regular weight 
+    IPA Extension, Spacing Modifier Letters and Combining Diacritical Marks range
+    designed with the supervision and the support of Sean Jensen
+    linguist teacher of phonology
+    
+  * added all the Braille symbols in all weights
+  
+  * added all the corresponding glyphs of Regular weight of Greek range
+    also to Bold, Italic and BoldItalic weights
+
+  * the design of 'Z' and 'z' was improved in all weights
+
+  * added all the weights all the glyphs of 
+    Box Drawing and Block Elements ranges
+
+
+
+
+
+
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.812 TO 0.813
+edited by Fabrizio Schiavi 2013-10    
+	
+  * Unicode range Latin Extended-A is completed in all weights
+    
+  * added all the corresponding glyphs of Regular weight of Cyrillic range
+    also to Bold, Italic and BoldItalic weights
+    
+  * Unicode range Geometric Shapes is completed in all the weights
+    The range includes useful glyphs for Tig and other softwares
+    (thanks to Yuri D’Elia!)
+    
+    this is the actual situation:
+    
+  +---------------------------------------------------------------------------+
+  | Unicode Range                                     | Reg | Bol | Ita | BIt |
+  |---------------------------------------------------+-----+-----+-----+-----|
+  | U+0000 – U+007F C0 Controls and Basic Latin       |  ■  |  ■  |  ■  |  ■  |
+  | U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    |  ■  |  ■  |  ■  |  ■  |
+  | U+0100 – U+017F Latin Extended-A                  |  ■  |  ■  |  ■  |  ■  |
+  | U+0180 – U+024F Latin Extended-B                  |  ■  |     |     |     |
+  | U+0370 – U+03FF Greek and Coptic                  |  □  |     |     |     |
+  | U+0400 – U+04FF Cyrillic                          |  □  |  □  |  □  |  □  |
+  | U+0590 – U+05FF Hebrew                            |  ■  |     |     |     |
+  | U+2000 – U+206F General Punctuation               |  □  |     |     |     |
+  | U+2070 – U+209F Superscripts and Subscripts       |  ■  |     |     |     |
+  | U+20A0 – U+20CF Currency Symbols                  |  □  |     |     |     |
+  | U+2110 – U+214F Letterlike Symbols                |  □  |     |     |     |
+  | U+2190 – U+21FF Arrows                            |  □  |     |     |     |
+  | U+2200 – U+22FF Mathematical Operators            |  ■  |     |     |     |
+  | U+2300 – U+23FF Miscellaneous Technical           |  □  |     |     |     |
+  | U+2400 – U+243F Control Pictures                  |  ■  |     |     |     |
+  | U+2500 – U+257F Box Drawing                       |  ■  |     |     |     |
+  | U+2580 – U+259F Block Elements                    |  ■  |     |     |     |
+  | U+25A0 – U+25FF Geometric Shapes                  |  ■  |  ■  |  ■  |  ■  | 
+  | U+2600 – U+26FF Miscellaneous Symbols             |  □  |     |     |     |
+  | U+27C0 – U+27EF Misc. Mathematical Symbols-A      |  ■  |     |     |     |
+  +---------------------------------------------------------------------------+
+                                         ■ = complete       □ = almost complete
+      
+      
+  * vertically modified these glyphs:
+    # @ = >
+    in all the weights
+    Now coding in Perl with PragmataPro looks less weird
+    (thanks to Albert Messiah!)
+  
+  * added the useful glyphs for VIM Powerline to all weights
+  
+  * backtick character (`) is included in all weights
+  
+  * added check marks (✓) to all weights 
+    used in some console unit test programs
+    (thanks Josef Jelinek!)
+    
+  * using "stylistic set 01 (ss01)" and "stylistic set 02 (ss02)"
+    of OpenType features it’s possible to access to ampersand (&) alternates
+    in all the weights
+    
+  
+  
+  
+  
+_________________________________________________________________________________________________________________
+
+
+CHANGES FROM 0.811 TO 0.812
+edited by Fabrizio Schiavi 2013-01
+
+  * added playing cards glyphs (Regular weight only):
+    U+2660  spade
+    U+2663  club
+    U+2665  heart
+    U+2666  diamond
+    
+  * added some important greek glyphs for chemical uses (Regular weight only):
+    U+03D0  var beta
+    U+03D1  var theta
+    U+03D5  var phi
+    U+03D6  var omega
+    U+03F0  var kappa
+    U+03F1  var rho
+    U+03F5  var epsilon
+    (thanks to Jakob Klein!)
+  
+  * improved the design and hinting of these glyphs (Regular weight only):
+    U+03B2  beta
+    U+03BB  lambda
+    U+03C6  phi
+    U+03C7  chi
+    U+05D2  gimel
+    U+05D6  zayin
+    U+05E0  nun
+	U+05E9  shin
+	(thanks to Júda Ronén and Ori Livneh!)
+	
+  * VIM Powerline has changed the Unicode of his important glyphs, 
+    so Regular weight is now updated:
+    U+E0A0  Version control branch
+	U+E0A1  LN (line) symbol
+	U+E0A2  Closed padlock
+	U+E0B0  Rightwards black arrowhead
+	U+E0B1  Rightwards arrowhead
+	U+E0B2  Leftwards black arrowhead
+	U+E0B3  Leftwards arrowhead
+	(thanks to Júda Ronén!)
+	
+  * the design of "N" is changed to avoid confusion with "M" 
+    in Bold and BoldItalic weights
+    
+	
+
+
+_________________________________________________________________________________________________________________
+
+CHANGES FROM 0.810 TO 0.811
+edited by Fabrizio Schiavi 2012-10
+
+  * added useful glyphs to the Regular weight for VIM Powerline:
+    U+2B60 	Branch symbol
+	U+2B61 	LN (line) symbol
+	U+2B62 	FT symbol, part 1
+	U+2B63 	FT symbol, part 2
+	U+2B64 	Padlock (closed)
+	U+2B80 	Hard right arrow
+	U+2B81 	Soft right arrow
+	U+2B82 	Hard left arrow
+	U+2B83 	Soft left arrow
+	
+  * modified the design of grave (U+0060), now it’s more readable at low size
+  
+  * modified the design of acute (U+00B4), now it’s more readable at low size
+
+  * added grave.alt01 and acute.alt01 with the old design of grave and acute
+
+
+
+_________________________________________________________________________________________________________________
+CHANGES FROM 0.800 TO 0.810
+edited by Fabrizio Schiavi 2012-06
+
+  * dashrockets
+    ->
+    <-
+    <=
+    =========> 0%
+    >=
+    +=
+    -=
+    *= 
+    +--------+--------+--------+
+    are horizontally aligned 
+  
+  * | ¦ "bar" and "brokenbar" are now designed to be overlapped between two lines of text
+    | ¦ (useful for iTerm2, tmux 1.6., Terminal.app and others)
+  
+  * horizontal strokes of the letter Nun (U+05E0) is a bit shorter, 
+    to help make it more distinct from Kaph (U+05DB)
+  
+  * Italic weight is TrueType handhinted
+  
+  * Bold Italic weight is TrueType handhinted
+  
+  * added an entire Unicode block: 
+    2100-214F Letterlike Symbols to the Regular weight
+  
+  * added these letters from the block 
+    1D400-1D7FF Mathematical Alphanumeric Symbols 
+    to the Regular weight:
+    Amathdoublestruck, Bmathdoublestruck, Dmathdoublestruck, Emathdoublestruck, Fmathdoublestruck, Gmathdoublestruck, Imathdoublestruck, Jmathdoublestruck, Kmathdoublestruck, Lmathdoublestruck, Mmathdoublestruck, Omathdoublestruck, bmathdoublestruck, dmathdoublestruck, emathdoublestruck, imathdoublestruck, jmathdoublestruck, Bmathboldfraktur, Cmathboldfraktur, Dmathboldfraktur, Emathboldfraktur, Fmathboldfraktur, Gmathboldfraktur, Hmathboldfraktur, Imathboldfraktur
+
+_________________________________________________________________________________________________________________

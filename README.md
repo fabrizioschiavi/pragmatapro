@@ -10,15 +10,15 @@ Many thanks!
 Fabrizio Schiavi
 
 
-=======================================
+
 ![All chars of PragmataPro Regular](https://www.fsd.it/pragmatapro/All_chars.png)
 
 
-=======================================
+
 ![PragmataPro Handbook](https://www.fsd.it/pragmatapro/Handbook.png)
 
 
-=======================================
+
 ![PragmataPro Haskell ligatures list](https://www.fsd.it/pragmatapro/PragmataPro_Haskell_liga.png)
 
 
