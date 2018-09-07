@@ -11,11 +11,11 @@ Fabrizio Schiavi
 
 
 
-![All chars of PragmataPro Regular](https://www.fsd.it/pragmatapro/All_chars.png)
+![All chars of PragmataPro Regular](https://github.com/fabrizioschiavi/pragmatapro/raw/master/pragmatapro/useful_files/All_chars.png)
 
 
 
-![PragmataPro Handbook](https://www.fsd.it/pragmatapro/Handbook.png)
+![PragmataPro Handbook](https://github.com/fabrizioschiavi/pragmatapro/raw/master/pragmatapro/useful_files/Handbook.png)
 
 
 
