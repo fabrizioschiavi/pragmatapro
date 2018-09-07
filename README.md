@@ -15,12 +15,11 @@ Fabrizio Schiavi
 
 
 =======================================
-![PragmataPro OpenType features](https://www.fsd.it/pragmatapro/OpenType_features.png)
+![PragmataPro Handbook](https://www.fsd.it/pragmatapro/Handbook.png)
 
 
 =======================================
 ![PragmataPro Haskell ligatures list](https://www.fsd.it/pragmatapro/PragmataPro_Haskell_liga.png)
 
 
-=======================================
-![PragmataPro vs PragmataPro Mono vs Essential PragmataPro](https://www.fsd.it/pragmatapro/PP_PPM_EPP.png)
+
