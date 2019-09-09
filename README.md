@@ -1,10 +1,11 @@
 ## PragmataPro
 
-I don't know if in the future my font [PragmataPro](https://www.fsd.it/shop/fonts/pragmatapro/)™ will be open source (I hope)
+PragmataPro™ is a condensed monospaced font optimized for screen, designed by Fabrizio Schiavi to be the ideal font for coding, math and engineering.
+PragmataPro Regular version now has more than 10,000 glyphs! The Bold, Italic and Bold Italic versions have more than 7000 chars.
 
-while you visit its web page for more informations and updates 
+Discover more about PragmataPro™ visit its official [web page](https://www.fsd.it/shop/fonts/pragmatapro/)
 
-and keep me informed about issues you found and suggestions to improve it
+This repository is very useful to collect issues and suggestions with the goal to improve better as possible this typeface family.
 
 Many thanks!
 Fabrizio Schiavi
