@@ -12,7 +12,7 @@ Fabrizio Schiavi
 
 
 
-![All chars of PragmataPro Regular](useful_files/All_chars.png)
+![All chars of PragmataPro Regular](https://fsd.it/pragmatapro/All_chars.png)
 
 
 
