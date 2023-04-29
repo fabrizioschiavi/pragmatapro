@@ -20,7 +20,6 @@ Fabrizio Schiavi
 
 
 
-![PragmataPro Haskell ligatures list](useful_files/PragmataPro_Haskell_liga.png)
 
 
 
