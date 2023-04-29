@@ -12,7 +12,7 @@ Fabrizio Schiavi
 
 
 
-![All chars of PragmataPro Regular](https://fsd.it/pragmatapro/All_chars.png)
+![All chars of PragmataPro Regular](useful_files/All_chars.png)
 
 
 
@@ -20,7 +20,7 @@ Fabrizio Schiavi
 
 
 
-![PragmataPro Haskell ligatures list](https://www.fsd.it/pragmatapro/PragmataPro_Haskell_liga.png)
+![PragmataPro Haskell ligatures list](useful_files/PragmataPro_Haskell_liga.png)
 
 
 
