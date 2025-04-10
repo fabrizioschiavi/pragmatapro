@@ -1,4 +1,171 @@
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+CHANGES FROM 0.830 TO 0.9
+edited by Fabrizio Schiavi 2025-03
+
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃                                                   ┃ PragmataPro           ┃ PragmataPro Mono      ┃ Essential ┃
+┠───────────────────────────────────────────────────╂─────┬─────┬─────┬─────╂─────┬─────┬─────┬─────╂─────┬─────┨
+┃ Unicode Ranges                                    ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol │ Ita │ BIt ┃ Reg │ Bol ┃
+┃                                                   ┠─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+* U+0000 – U+00F7 C0 Controls and Basic Latin       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+* U+0080 – U+00FF C1 Controls and Latin-1 Suppl.    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+* U+0100 – U+017F Latin Extended-A                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+0180 – U+024F Latin Extended-B                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0250 – U+02AF IPA Extensions                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+02B0 – U+02FF Spacing Modifier Letters          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+0300 – U+036F Combining Diacritical Marks       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+┃ U+0370 – U+03FF Greek and Coptic                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0400 – U+04FF Cyrillic                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+0590 – U+05FF Hebrew                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+0600 – U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+0750 – U+077F Arabic Supplement                 ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+16A0 – U+16FF Runic                             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1AB0 – U+1AC0 Combining Diacritical Marks Ext.  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1D00 – U+1D7F Phonetic extensions               ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1DC0 – U+1DFF Combining Diacritical Marks Sup.  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+1E00 – U+1EFF Latin Extended Additional         ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F00 – U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+2000 – U+206F General Punctuation               ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  ┃
+* U+2070 – U+209F Superscripts and Subscripts       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+20A0 – U+20CF Currency Symbols                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+20D0 – U+20FF Comb. Diacrit. Marks for Symbols  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2110 – U+214F Letterlike Symbols                ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
+* U+2150 – U+218F Number forms                      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2190 – U+21FF Arrows                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  □  │  □  │  □  ┃  □  │     ┃
+* U+2200 – U+22FF Mathematical Operators            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  □  ┃
+* U+2300 – U+23FF Miscellaneous Technical           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  □  │     ┃
+* U+2400 – U+243F Control Pictures                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │     ┃
+┃ U+2460 – U+24FF Enclosed Alphanumerics            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2500 – U+257F Box Drawing                       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  ┃
+┃ U+2580 – U+259F Block Elements                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+25A0 – U+25FF Geometric Shapes                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2600 – U+26FF Miscellaneous Symbols             ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2700 – U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+27C0 – U+27EF Misc. Mathematical Symbols-A      ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+27F0 – U+27FF Supplemental Arrows-A             ┃  ■  │     │     │     ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2800 – U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2900 – U+297F Supplemental Arrows               ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2980 – U+29FF Misc. Mathematical Symbols-B      ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2A00 – U+2AFF Supplemental Math Operators       ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2B00 – U+2BFF Misc. Symbols and Arrows          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+3100 – U+312F Bopomofo                          ┃     │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+* U+E000 – U+EFFF Private Use Area                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+FF00 – U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+FB00 – U+FB4F Alphabetic Presentation Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+FB50 – U+FDFF Arabic Presentation Forms-A       ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+FE70 – U+FEFF Arabic Presentation Forms-B       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+FF00 – U+FFFD Specials                          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1D400–U+1D7FF Mathematical Alphan. Symbols      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+1F0A0–U+1F0DF Playing Cards                     ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F300–U+1F5FF Misc. Symbols & Pictographs       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+1F800–U+1F8FF Supplemental Arrows-C             ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+1FB00–U+1FBFF Symbols for Legacy Computing      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* U+F0000–U+FFFF0 Supplementary P. U. Area-A        ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+* U+100000–U+10FFF0 Supplementary P. U. Area-B      ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┠───────────────────────────────────────────────────╂─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────╂─────┼─────┨
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃ OpenType Features                                 ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+* calt Ligatures                                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* c2sc Small Capitals From Capitals                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ dnom Denominators                                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* fina Arabic Terminal Forms                        ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ frac Fractions                                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ fwid Fullwidth                                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* init Arabic Initial Forms                         ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* medi Arabic Medial Forms                          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* rlig Arabic Required Ligatures                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ sinf Scientific Inferiors                         ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ cv01 Character variant 1 l                        ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ cv02 Character variant 2 ampersand                ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ cv03 Character variant 3 ampersand                ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss03 Stylistic Set 3 math fraktur                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss04 Stylistic Set 4 math fraktur bold            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss05 Stylistic Set 5 poker                        ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss06 Stylistic Set 6 math script                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss07 Stylistic Set 7 math script bold             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss08 Stylistic Set 8 math serif bold              ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss09 Stylistic Set 9 math serif italic            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss10 Stylistic Set 10 math serif bold italic      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss11 Stylistic Set 11 braille w/ helpers          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss12 Stylistic Set 12 discretionary ligatures     ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss13 Stylistic Set 13 git tree                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ ss14 Stylistic Set 14 pre2000 style               ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss15 Stylistic Set 15 Tags [BUG]                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss16 Stylistic Set 16 Serif                       ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss17 Stylistic Set 17 LCD numbers                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+* ss18 Stylistic Set 18 Optional Tags # BUG // BUG  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ sups Superscripts                                 ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃                                                   ┃     │     │     │     ┃     │     │     │     ┃     │     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┷━━━━━┷━━━━━┻━━━━━┷━━━━━┛
+
+                                                       ■ = complete       □ = almost complete
+
+                                         
+* the variable font version of PragmataPro was released and available at 
+               https://fsd.it/shop/fonts/pragmatapro-variable 
+
+* all weights: from this version `m M` and `w W` are more expanded in width when meets some letters
+               too extended by design like `f i j l r t E F I L` with the goal to improve clarity.
+
+* all weights: the weight of math symbols, 
+               including `( ) [ ] { } < > + * / \ % @ | " ' ~ ^ _` and all the ligatures, 
+               are more light to improve the coding.
+               
+* all weights: Math Operators, Miscellaneous Technical, 
+               Arrows and Misc. Mathematical Symbols-A set 
+               was added to all the weights.   
+
+* all Mono weights: all the Nerd icons was manually optimized to improve their recognizability at low sizes
+
+* all weights: the special design for tags included between [] are now activable
+               enabling 'ss15' Stylistic Set 15 feature. 
+
+* all weights: the special design for optional tags with this sequences
+               # BUG  # DEBUG  # ERROR  # ERR  # FAIL  # FATAL  # FIXME  # HACK  
+               # INFO  # MARK  # NOTE  # TODO  # TRACE  # WARNING  # WARN
+               // BUG  // DEBUG  // ERROR  // ERR  // FAIL  // FATAL  // FIXME  // HACK  
+               // INFO  // MARK  // NOTE  // TODO  // TRACE  // WARNING  // WARN
+               are now activable enabling 'ss18' Stylistic Set 18 feature. 
+               
+* all Liga weights: ligatures are disabled in Regex.
+               
+* all weights: Serif version of A-Z and a-z replaced U+1D670 - U+1D6A3 sequence
+               and can replace Sans default letters enabling 'ss16' Stylistic Set 16 feature.
+               
+* all weights: all the Hebrew glyphs was redesigned and 
+               added U+FB4F (Hebrew Ligature Alef Lamed) activable 
+               enabling 'dlig' (Discretionary Ligatures) feature.
+               
+* all weights: the 'ss17' Stylistic Set 17 feature replaces numbers and colons (:) 
+               with LCD-style numerals and colons that maintain consistent weight with the essential glyphs.
+
+* all weights: N B ! is the character sequence to see 'notabene' ligature. 
+
+* all weights: added Wi-fi signal strength glyphs at these codepoints:
+               󠅰󠅰󠀀󿿰 U+FFFF0, 󿿱 U+FFFF1, 󿿲 U+FFFF2, 󿿳 U+FFFF3
+               the strokes weight change if Regular or Bold.
+
+* all weights: added \_ ligature for ABAP at codepoint U+10029E.
+
+* all Modularspaced weights: removed Bopomofo glyphs because too narrow, 
+               available in Mono weights only.
+               
+ * all weights: added {| |} ligatures for OCaml at codepoint U+1002DB U+1002C0.              
+
+               
+
+  
+
+
+
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.829 TO 0.830
@@ -21,14 +188,14 @@ edited by Fabrizio Schiavi 2023-12
 ┃ U+0370 – U+03FF Greek and Coptic                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
 ┃ U+0400 – U+04FF Cyrillic                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
 ┃ U+0590 – U+05FF Hebrew                            ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
-┃ U+0600 - U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
-┃ U+0750 - U+077F Arabic Supplement                 ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0600 – U+06FF Arabic                            ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+0750 – U+077F Arabic Supplement                 ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
 ┃ U+16A0 – U+16FF Runic                             ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
 ┃ U+1AB0 – U+1AC0 Combining Diacritical Marks Ext.  ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
-┃ U+1D00 - U+1D7F Phonetic extensions               ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1D00 – U+1D7F Phonetic extensions               ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
 ┃ U+1DC0 – U+1DFF Combining Diacritical Marks Sup.  ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
-┃ U+1E00 - U+1EFF Latin Extended Additional         ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
-┃ U+1F00 - U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1E00 – U+1EFF Latin Extended Additional         ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+1F00 – U+1FFF Greek Extended                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
 ┃ U+2000 – U+206F General Punctuation               ┃  ■  │  □  │  □  │  □  ┃  ■  │  □  │  □  │  □  ┃  □  │  □  ┃
 ┃ U+2070 – U+209F Superscripts and Subscripts       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
 ┃ U+20A0 – U+20CF Currency Symbols                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
@@ -44,21 +211,21 @@ edited by Fabrizio Schiavi 2023-12
 ┃ U+2580 – U+259F Block Elements                    ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
 ┃ U+25A0 – U+25FF Geometric Shapes                  ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
 ┃ U+2600 – U+26FF Miscellaneous Symbols             ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
-┃ U+2700 - U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+2700 – U+27BF Dingbats                          ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
 ┃ U+27C0 – U+27EF Misc. Mathematical Symbols-A      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
 ┃ U+27F0 – U+27FF Supplemental Arrows-A             ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
-┃ U+2800 - U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+2800 – U+28FF Braille                           ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
 ┃ U+2900 – U+297F Supplemental Arrows               ┃  ■  │  ■  │  ■  │  ■  ┃  □  │  □  │  □  │  □  ┃     │     ┃
-┃ U+2980 - U+29FF Misc. Mathematical Symbols-B      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+2980 – U+29FF Misc. Mathematical Symbols-B      ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
 ┃ U+2A00 – U+2AFF Supplemental Math Operators       ┃  ■  │     │     │     ┃  □  │     │     │     ┃     │     ┃
 ┃ U+2B00 – U+2BFF Misc. Symbols and Arrows          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
-┃ U+3100 - U+312F Bopomofo                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+3100 – U+312F Bopomofo                          ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
 * U+E000 – U+EFFF Private Use Area                  ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
-┃ U+FF00 - U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
-┃ U+FB00 - U+FB4F Alphabetic Presentation Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
-┃ U+FB50 - U+FDFF Arabic Presentation Forms-A       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
-┃ U+FE70 - U+FEFF Arabic Presentation Forms-B       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
-┃ U+FF00 - U+FFFD Specials                          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
+┃ U+FF00 – U+FFEF Halfwidth and Fullwidth Forms     ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FB00 – U+FB4F Alphabetic Presentation Forms     ┃  □  │  □  │  □  │  □  ┃  □  │  □  │  □  │  □  ┃     │     ┃
+┃ U+FB50 – U+FDFF Arabic Presentation Forms-A       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
+┃ U+FE70 – U+FEFF Arabic Presentation Forms-B       ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
+┃ U+FF00 – U+FFFD Specials                          ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
 ┃ U+1D400–U+1D7FF Mathematical Alphan. Symbols      ┃  ■  │  ■  │  ■  │  ■  ┃  ■  │  ■  │  ■  │  ■  ┃     │     ┃
 ┃ U+1F0A0–U+1F0DF Playing Cards                     ┃  ■  │     │     │     ┃  ■  │     │     │     ┃     │     ┃
 ┃ U+1F300–U+1F5FF Misc. Symbols & Pictographs       ┃  □  │     │     │     ┃  □  │     │     │     ┃     │     ┃
@@ -133,7 +300,7 @@ edited by Fabrizio Schiavi 2023-12
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.828 TO 0.829
@@ -283,7 +450,7 @@ edited by Fabrizio Schiavi 2021-05
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.827 TO 0.828
@@ -410,7 +577,7 @@ edited by Fabrizio Schiavi 2019-07
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.826 TO 0.827
@@ -583,7 +750,7 @@ edited by Fabrizio Schiavi 2018-08
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.825 TO 0.826
@@ -726,7 +893,7 @@ edited by Fabrizio Schiavi 2017-08
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.824 TO 0.825
@@ -893,7 +1060,7 @@ edited by Fabrizio Schiavi 2017-04
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 
@@ -1017,7 +1184,7 @@ edited by Fabrizio Schiavi 2016-09
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.822 TO 0.823
@@ -1153,7 +1320,7 @@ edited by Fabrizio Schiavi 2016-06
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.821 TO 0.822
@@ -1264,7 +1431,7 @@ edited by Fabrizio Schiavi 2016-03
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.820 TO 0.821
@@ -1354,7 +1521,7 @@ edited by Fabrizio Schiavi 2015-07
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 
@@ -1434,7 +1601,7 @@ edited by Fabrizio Schiavi 2014-12
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.818 TO 0.819
@@ -1544,7 +1711,7 @@ edited by Fabrizio Schiavi 2014-11
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.817 TO 0.818
@@ -1608,7 +1775,7 @@ edited by Fabrizio Schiavi 2014-09
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.816 TO 0.817
@@ -1661,13 +1828,14 @@ edited by Fabrizio Schiavi 2014-04
 
   * all weights: added all the necessary glyphs to use correctly the Angoster
                  ZSH theme,
-                 for more info: http://fsd.tumblr.com/post/80962745570/pragmatapro-0-817-will-be-agnoster-ready-i-really
+                 for more info: 
+                 http://fsd.tumblr.com/post/80962745570/pragmatapro-0-817-will-be-agnoster-ready-i-really
 
 
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 
@@ -1745,7 +1913,7 @@ edited by Fabrizio Schiavi 2014-03
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.814 TO 0.815
@@ -1800,7 +1968,7 @@ edited by Fabrizio Schiavi 2014-02
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.813 TO 0.814
@@ -1863,7 +2031,7 @@ edited by Fabrizio Schiavi 2013-12
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.812 TO 0.813
@@ -1929,7 +2097,7 @@ edited by Fabrizio Schiavi 2013-10
   
   
   
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 
 CHANGES FROM 0.811 TO 0.812
@@ -1979,7 +2147,7 @@ edited by Fabrizio Schiavi 2013-01
 	
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 CHANGES FROM 0.810 TO 0.811
 edited by Fabrizio Schiavi 2012-10
@@ -2003,7 +2171,7 @@ edited by Fabrizio Schiavi 2012-10
 
 
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 CHANGES FROM 0.800 TO 0.810
 edited by Fabrizio Schiavi 2012-06
 
@@ -2035,6 +2203,10 @@ edited by Fabrizio Schiavi 2012-06
   * added these letters from the block 
     1D400-1D7FF Mathematical Alphanumeric Symbols 
     to the Regular weight:
-    Amathdoublestruck, Bmathdoublestruck, Dmathdoublestruck, Emathdoublestruck, Fmathdoublestruck, Gmathdoublestruck, Imathdoublestruck, Jmathdoublestruck, Kmathdoublestruck, Lmathdoublestruck, Mmathdoublestruck, Omathdoublestruck, bmathdoublestruck, dmathdoublestruck, emathdoublestruck, imathdoublestruck, jmathdoublestruck, Bmathboldfraktur, Cmathboldfraktur, Dmathboldfraktur, Emathboldfraktur, Fmathboldfraktur, Gmathboldfraktur, Hmathboldfraktur, Imathboldfraktur
+    Amathdoublestruck, Bmathdoublestruck, Dmathdoublestruck, Emathdoublestruck, Fmathdoublestruck, 
+    Gmathdoublestruck, Imathdoublestruck, Jmathdoublestruck, Kmathdoublestruck, Lmathdoublestruck, 
+    Mmathdoublestruck, Omathdoublestruck, bmathdoublestruck, dmathdoublestruck, emathdoublestruck, 
+    imathdoublestruck, jmathdoublestruck, Bmathboldfraktur, Cmathboldfraktur, Dmathboldfraktur, 
+    Emathboldfraktur, Fmathboldfraktur, Gmathboldfraktur, Hmathboldfraktur, Imathboldfraktur
 
-_________________________________________________________________________________________________________________
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
