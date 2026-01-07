@@ -65,6 +65,10 @@ The script outputs to stdout a formatted text file showing:
 **Note:** When multiple font files are provided, the script merges their coverage and uses glyphs from the first font where each character is found.
 Warnings are printed to stderr for glyphs found only in non-Regular weights.
 
+**Batch generation:**
+To generate all files with a single click, run the `generate_all_coverage.sh` shell script. 
+All generated files will be saved in the `generate_coverage` folder.
+
 ## Examples
 
 **Example:** Generate coverage for a single font weight:

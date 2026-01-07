@@ -4,26 +4,6 @@ Generate a Unicode coverage file for OpenType fonts.
 
 This script analyzes one or more font files and produces a formatted text
 document showing Unicode character coverage organized by Unicode blocks.
-
-The script:
-1. Loads one or more font files (different weights can be merged)
-2. Extracts all available codepoints from the font's cmap table
-3. Retrieves glyph metrics (advance width, left side bearing, xMax)
-4. Groups characters by Unicode blocks
-5. Calculates appropriate spacing for narrow/wide characters
-6. Generates formatted output showing character coverage
-
-Features:
-- Supports multiple font weights (Regular, Bold, Italic, etc.)
-- Spacing based on glyph metrics
-- Special handling for combining characters and diacritics
-- Automatic detection of wide character blocks
-
-When multiple font files are provided, the script merges their coverage and
-uses glyphs from the first font where each character is found. Warnings are
-printed to stderr for glyphs found only in non-Regular weights.
-
-Output is written to stdout and should be redirected to a file.
 """
 
 import argparse
@@ -37,8 +17,8 @@ POSITION_HEADER_NARROW = "Position 0 1 2 3 4 5 6 7 8 9 A B C D E F"
 POSITION_HEADER_WIDE = (
     "Position 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F"
 )
-PREFIX_SPACE = " "  # "_"
-SUFFIX_SPACE = " "  # "."
+PREFIX_SPACE = " "
+SUFFIX_SPACE = " "
 
 
 def eprintf(*args, **kwargs):
@@ -53,16 +33,13 @@ def write(s):
 
 def is_combining(cp):
     """Check if a codepoint is a combining character."""
-    # Mn = Nonspacing Mark, Mc = Spacing Mark, Me = Enclosing Mark
     return unicodedata.category(chr(cp)) in ("Mn", "Mc", "Me")
 
 
 def is_printable(cp):
     """Check if a codepoint is printable (not a control or format character)."""
     return (
-        # Exclude invisible formatting characters range (U+2060-U+206F)
         (not (0x2060 <= cp <= 0x206F))
-        # Exclude Cc (Control), Cf (Format), Zs (Space Separator) categories
         and not (unicodedata.category(chr(cp)) in ("Cc", "Cf", "Zs"))
     )
 
@@ -225,7 +202,6 @@ def calc_wide_blocks(codepoints):
 
         for cp in codepoints:
             if start <= cp <= end:
-                # Special case for ᾖ, ᾗ, 􀄄, 􀄅, 􀄆, 􀄇 which seem to be incorrectly wide
                 if 0x1F96 <= cp <= 0x1F97 or 0x100104 <= cp <= 0x100107:
                     continue
 
@@ -252,9 +228,6 @@ def in_wide_block(wide_blocks, start, end):
 
 def calc_prefix_spaces(codepoints, cp):
     """Calculate number of spaces to add before a char."""
-    # If the glyph extends significantly left of the origin, add enough
-    # spaces (1024 units each) to avoid overprinting to the left.
-    # Threshold of 512 units (0.5 spaces) excludes small extensions.
     lsb = codepoints[cp][1]
     if lsb < -512:
         return math.ceil(-lsb / 1024)
@@ -265,21 +238,13 @@ def calc_suffix_spaces(
     combining_base, codepoints, is_wide, cp, prefix_spaces
 ):
     """Calculate number of spaces to add after a char."""
-    # If the glyph advances less than expected, add spaces to preserve
-    # vertical alignment.
-
     advance = codepoints[cp][0]
-    # For combining marks: use the wider of the mark's advance or base's advance.
-    # To calculate this correctly would require using a text shaping engine.
     if is_combining(cp):
         advance = max(advance, codepoints[ord(combining_base)][0])
 
     expected_width = 2048 if is_wide else 1024
     shortfall = max(0, expected_width - advance)
     nspaces = math.ceil(shortfall / 1024)
-
-    # If a char extends to the left and has been prefixed, then the suffix
-    # should be reduced.
     nspaces -= prefix_spaces
 
     return nspaces
@@ -292,29 +257,17 @@ def write_codepoint(combining_base, codepoints, is_wide, cp):
 
     if is_combining(cp):
         write(combining_base)
-
-    # Special case for U+1F96 (ᾖ) and U+1F97 (ᾗ)
-    # The ypogegrammeni render to the left instead of under the stem of the η (font bug?)
-    # Avoid calculation below which would prefix a space
     elif cp == 0x1F96 or cp == 0x1F97:
         pass
-
     else:
-        # Calculate extra spacing for glyphs that extend left
         prefix_spaces = calc_prefix_spaces(codepoints, cp)
         write(PREFIX_SPACE * prefix_spaces)
 
     write(char)
 
-    # Calculate extra spacing for glyphs that extend right
     suffix_spaces = calc_suffix_spaces(
         combining_base, codepoints, is_wide, cp, prefix_spaces
     )
-
-    # # Special cases for U+27C2 (⟂) and U+2918 (⤘)
-    # # They have narrow advance but wide visual width (font bug?)
-    # if cp == 0x27C2 or cp == 0x2918:
-    #     suffix_spaces = 1
 
     write(SUFFIX_SPACE * suffix_spaces)
 
@@ -331,7 +284,6 @@ def gen_coverage_section(
     last_printed_block = None
     last_width_mode = None
 
-    # Group codepoints by their 16-char line
     lines_with_codepoints = {}
     for cp in codepoints:
         line = (cp // 16) * 16
@@ -344,11 +296,9 @@ def gen_coverage_section(
         if show_gaps and gap_here:
             write("\n")
 
-        # Detect all block changes within this 16-char line
-        segments = []  # List of (start_offset, end_offset, block_name)
+        segments = []
 
         def append(start, end, name):
-            # Filter segments to only include those with at least one glyph
             if any(line + i in codepoints for i in range(start, end)):
                 segments.append((start, end, name))
 
@@ -363,68 +313,52 @@ def gen_coverage_section(
                 current_segment_start = offset
                 current_block_name = block_name
 
-        # Close final segment
         if current_block_name is not None:
             append(current_segment_start, 16, current_block_name)
 
-        # Skip this line entirely if no segments have glyphs
         if not segments:
             continue
 
-        # Determine spacing based on number of hex digits (maintains constant width)
         hex_len = len(f"{line:X}")
         width = max(4, hex_len)
         prefix = " U+" if hex_len <= 4 else "U+"
         hex_format = f"{line:0{width}X}"
         suffix = "  " if hex_len <= 5 else " "
 
-        # Write segments with headers
         for seg_start, seg_end, seg_block in segments:
-            # Determine if this segment uses double-width spacing
             is_wide = in_wide_block(
                 wide_blocks, line + seg_start, line + seg_end
             )
 
-            # Write position header only when transitioning between width modes
             if show_position_headers and last_width_mode != is_wide:
                 if is_wide:
                     write(f"\n{POSITION_HEADER_WIDE}\n\n")
                 else:
                     write(f"\n{POSITION_HEADER_NARROW}\n\n")
 
-            # Update width mode tracking
             last_width_mode = is_wide
 
-            # Write header if this is a new Unicode block
             if seg_block != last_printed_block:
                 write(f"      ▾  {seg_block}\n")
                 last_printed_block = seg_block
 
-            # Write line prefix
             write(f"{prefix}{hex_format}{suffix}")
 
-            # Add padding for segments not starting at offset 0
             write(" " * (seg_start * (3 if is_wide else 2)))
 
-            # Write characters for this segment
             for offset in range(seg_start, seg_end):
                 cp = line + offset
                 if cp in codepoints:
                     write_codepoint(combining_base, codepoints, is_wide, cp)
 
-                    # Write inter-column space
                     if offset < 15:
-                        # Skip inter-column separator for very wide characters
                         advance = codepoints[cp][0]
                         expected_advance = 2048 if is_wide else 1024
                         overhang = max(0, advance - expected_advance)
                         remaining = max(0, 1024 - overhang)
                         write(" " * math.ceil(remaining / 1024))
                 else:
-                    # Write spaces for missing chars
                     write("  " if is_wide else " ")
-
-                    # Write inter-column separator
                     if offset < 15:
                         write(" ")
 
@@ -432,7 +366,6 @@ def gen_coverage_section(
 
         last_line = line
 
-    # Return final width mode for footer
     return last_width_mode
 
 
@@ -510,7 +443,6 @@ def extract_and_merge_codepoints(fonts):
             f"WARNING: First font weight is {first_weight.title()}, expected Regular"
         )
 
-    # Extract codepoints from all weights
     for weight in fonts.keys():
         weight_name = weight.replace("_", "-").title()
         eprintf(f"Extracting {weight_name} weight codepoints...")
@@ -519,7 +451,6 @@ def extract_and_merge_codepoints(fonts):
         }
         eprintf(f"  {weight_name}: {len(weight_codepoints[weight])} glyphs")
 
-    # Merge all weights for the main list
     eprintf(f"\nMerging all weights...")
     merged_codepoints = weight_codepoints[first_weight].copy()
     for weight in weight_codepoints.keys():
@@ -533,7 +464,6 @@ def extract_and_merge_codepoints(fonts):
 def get_font_family(font):
     """Extract the font family name from a TTFont object."""
     for record in font["name"].names:
-        # Name ID 1 is font family name
         if record.nameID == 1:
             return record.toUnicode()
     return None
@@ -541,20 +471,32 @@ def get_font_family(font):
 
 def get_font_style(font):
     """Get the font style from a TTFont object."""
-    # Name ID 2 is subfamily name
     for record in font["name"].names:
         if record.nameID == 2:
-            return record.toUnicode().lower()
+            return record.toUnicode()
     return None
+
+
+def get_full_font_name(font):
+    """Get the complete font name (family + style) from a TTFont object."""
+    # Name ID 4 is the full font name (e.g., "PragmataPro Liga Bold")
+    for record in font["name"].names:
+        if record.nameID == 4:
+            return record.toUnicode()
+    
+    # Fallback: combine family and style
+    family = get_font_family(font)
+    style = get_font_style(font)
+    if family and style:
+        return f"{family} {style}"
+    return family or "Unknown"
 
 
 def get_font_version(font):
     """Extract the font version from a TTFont object."""
-    # Name ID 5 is Version string
     for record in font["name"].names:
         if record.nameID == 5:
             version_str = record.toUnicode()
-            # Clean up version string (often contains "Version " prefix)
             version_str = version_str.replace("Version ", "").strip()
             return version_str
     return "Unknown"
@@ -562,10 +504,8 @@ def get_font_version(font):
 
 def get_font_format(font):
     """Determine if font is OTF or TTF based on outline format."""
-    # Check for glyf table (TrueType outlines)
     if "glyf" in font:
         return "TTF"
-    # Check for CFF table (OpenType with PostScript outlines)
     elif "CFF " in font or "CFF2" in font:
         return "OTF"
     else:
@@ -573,12 +513,10 @@ def get_font_format(font):
 
 
 def load_and_validate_fonts(font_paths):
-    """Load and validate font files, returning weights dict, font objects, and family name."""
+    """Load and validate font files, returning weights dict, font objects, and full font name."""
     weights = {}
     fonts = {}
     font_name = None
-    font_version = None
-    font_format = None
 
     for font_path in font_paths:
         path = Path(font_path)
@@ -586,7 +524,6 @@ def load_and_validate_fonts(font_paths):
             eprintf(f"Error: Font file not found: {font_path}")
             sys.exit(1)
 
-        # Load font
         try:
             font = TTFont(path)
         except Exception as e:
@@ -594,26 +531,29 @@ def load_and_validate_fonts(font_paths):
             eprintf(f"  {e}")
             sys.exit(1)
 
-        # Extract name and style
-        name = f"{get_font_family(font)} ({get_font_version(font)}, {get_font_format(font)})"
+        # Get full name with style
+        full_name = get_full_font_name(font)
+        version = get_font_version(font)
+        format_type = get_font_format(font)
+        complete_name = f"{full_name} ({version}, {format_type})"
+        
         style = get_font_style(font)
 
-        # Validate family consistency
         if font_name is None:
-            font_name = name
-        elif font_name != name:
+            font_name = complete_name
+        elif font_name != complete_name:
             eprintf(f"Warning: Multiple font names.")
             eprintf(f"  Expected: {font_name}")
-            eprintf(f"  Found:    {name} in {font_path}")
+            eprintf(f"  Found:    {complete_name} in {font_path}")
 
-        # Store font path and object by style
-        if style in weights:
+        style_key = style.lower() if style else "regular"
+        if style_key in weights:
             eprintf(
-                f"Warning: Multiple {style} fonts specified, using first one"
+                f"Warning: Multiple {style_key} fonts specified, using first one"
             )
         else:
-            weights[style] = path
-            fonts[style] = font
+            weights[style_key] = path
+            fonts[style_key] = font
 
     eprintf(f"Font name: {font_name}")
     eprintf(f"Fonts loaded:")
