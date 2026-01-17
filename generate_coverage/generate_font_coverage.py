@@ -400,17 +400,45 @@ def gen_coverage_file(
 
 
 def get_metrics(font, cp):
-    glyf_table = font["glyf"]
     for table in font["cmap"].tables:
         cmap = table.cmap
         if cp not in cmap:
             continue
         glyph_name = cmap[cp]
+        if glyph_name not in font["hmtx"].metrics:
+            continue
         advance, lsb = font["hmtx"].metrics[glyph_name]
-        if glyph_name in glyf_table:
-            glyph = glyf_table[glyph_name]
-            xmax = getattr(glyph, "xMax", advance)
-            return (advance, lsb, xmax)
+
+        # TTF fonts have a glyf table
+        if "glyf" in font:
+            glyf_table = font["glyf"]
+            if glyph_name in glyf_table:
+                glyph = glyf_table[glyph_name]
+                xmax = getattr(glyph, "xMax", advance)
+                return (advance, lsb, xmax)
+        # OTF fonts have CFF or CFF2 tables
+        elif "CFF " in font:
+            cff = font["CFF "].cff
+            charstrings = cff.topDictIndex[0].CharStrings
+            if glyph_name in charstrings:
+                charstring = charstrings[glyph_name]
+                bounds = charstring.calcBounds(charstrings)
+                if bounds:
+                    xmax = bounds[2]  # bounds = (xMin, yMin, xMax, yMax)
+                else:
+                    xmax = advance
+                return (advance, lsb, xmax)
+        elif "CFF2" in font:
+            cff2 = font["CFF2"].cff
+            charstrings = cff2.topDictIndex[0].CharStrings
+            if glyph_name in charstrings:
+                charstring = charstrings[glyph_name]
+                bounds = charstring.calcBounds(charstrings)
+                if bounds:
+                    xmax = bounds[2]
+                else:
+                    xmax = advance
+                return (advance, lsb, xmax)
 
 
 def build_codepoints_table(fonts, merged_codepoints):
